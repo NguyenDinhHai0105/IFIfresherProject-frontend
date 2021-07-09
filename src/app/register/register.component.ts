@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
   isSignedUp = false;
   isSignUpFailed = false;
   errorMessage = '';
- 
+  
   constructor(private authService: AuthService) { }
  
   ngOnInit() { }
