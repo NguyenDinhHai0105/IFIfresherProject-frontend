@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
  
 import { TokenStorageService } from '../auth/token-storage.service';
+import { Test } from '../test';
+import { TestService } from '../test.service';
  
 @Component({
   selector: 'app-home',
@@ -8,20 +10,36 @@ import { TokenStorageService } from '../auth/token-storage.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  info: any;
+  // info: any;
  
-  constructor(private token: TokenStorageService) { }
+  // constructor(private token: TokenStorageService) { }
  
-  ngOnInit() {
-    this.info = {
-      token: this.token.getToken(),
-      username: this.token.getUsername(),
-      authorities: this.token.getAuthorities()
-    };
+  // ngOnInit() {
+  //   this.info = {
+  //     token: this.token.getToken(),
+  //     username: this.token.getUsername(),
+  //     authorities: this.token.getAuthorities()
+  //   };
+  // }
+ 
+  // logout() {
+  //   this.token.signOut();
+  //   window.location.reload();
+  // }
+
+  tests!: Test[] ;
+  constructor(
+    private testService: TestService
+  ){}
+
+  ngOnInit(): void {
+    this.getAllTest();
   }
- 
-  logout() {
-    this.token.signOut();
-    window.location.reload();
+
+  getAllTest() {
+    this.testService.getAllTest().subscribe(data => {
+      console.log(data);
+      this.tests = data;
+    })
   }
 }
