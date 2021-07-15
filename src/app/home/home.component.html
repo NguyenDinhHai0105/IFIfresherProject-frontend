@@ -11,7 +11,7 @@
   <ng-template #loggedOut>
     Please login.
   </ng-template> -->
-  <div class="container">
+  <!-- <div class="container">
     <div class="card">
         <h3 class="text-center">test list</h3>
         <div class="card-body">
@@ -29,8 +29,8 @@
 
                         <td>{{test.test_name}}</td>
                         <td>{{test.test_time}}</td>
-                        <td>{{test.number_of_questions}}</td>
-                        <td>{{test.creat_at}}</td>
+                        <td>{{test.number_of_questions}}</td> -->
+                        <!-- <td>{{test.creat_at}}</td> -->
                         
                         <!-- <td>
                             <button (click)="updateUser(user.userId)" class="btn btn-info">
@@ -40,10 +40,27 @@
                                 Delete
                             </button>
                         </td>   -->
-                    </tr>
+                    <!-- </tr>
                 </tbody>
-            </table>
+            </table> -->
             <!-- <button class="btn btn-info" (click)="goToAddUser()">add</button> -->
-        </div>
+        <!-- </div>
     </div>
+</div> -->
+<div style="margin-top: 50px">
+    <div class="container">
+    <div class="row row-cols-4" >
+      <div class="col" *ngFor = "let test of tests">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-bookmark"></i> {{test.test_name}}</h5>
+              <p class="card-text" >thời gian:  {{test.test_time}}</p>
+              <p class="card-text">số câu hỏi:  {{test.number_of_questions}}</p>              
+              <a [routerLink]="['/test-detail', test.id]" class="btn btn-primary">làm bài</a>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
 </div>
+

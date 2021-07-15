@@ -12,6 +12,11 @@ export class AppComponent implements OnInit {
   public authority: string = '';
  
   constructor(private tokenStorage: TokenStorageService) { }
+
+  logout() {
+    this.tokenStorage.signOut();
+    window.location.reload();
+  }
  
   ngOnInit() {
     if (this.tokenStorage.getToken()) {

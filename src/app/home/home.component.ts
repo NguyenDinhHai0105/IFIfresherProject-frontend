@@ -21,17 +21,19 @@ export class HomeComponent implements OnInit {
   //     authorities: this.token.getAuthorities()
   //   };
   // }
- 
-  // logout() {
-  //   this.token.signOut();
-  //   window.location.reload();
-  // }
+
 
   tests!: Test[] ;
   constructor(
-    private testService: TestService
+    private testService: TestService,
+    private token: TokenStorageService
   ){}
-
+ 
+  logout() {
+    this.token.signOut();
+    window.location.reload();
+  }
+  
   ngOnInit(): void {
     this.getAllTest();
   }

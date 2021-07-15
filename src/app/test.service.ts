@@ -17,4 +17,8 @@ export class TestService {
   getAllTest(): Observable<Test[]> {
     return this.http.get<Test[]>(`${this.baseURl}`);
   }
+
+  getTestById(id: number): Observable<Test> {
+    return this.http.get<Test>(`${this.baseURl}/${id}`);
+  }
 }

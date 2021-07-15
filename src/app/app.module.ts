@@ -14,6 +14,7 @@ import { PmComponent } from './pm/pm.component';
  
 import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { FooterComponent } from './footer/footer.component';
+import { TestDetailComponent } from './test-detail/test-detail.component';
  
 @NgModule({
   declarations: [
@@ -24,13 +25,15 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     AdminComponent,
     PmComponent,
-    FooterComponent
+    FooterComponent,
+    TestDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule, 
+    
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
