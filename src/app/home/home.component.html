@@ -1,4 +1,4 @@
-<div *ngIf="info.token; else loggedOut">
+<!-- <div *ngIf="info.token; else loggedOut">
     <h5 class="text-primary">Your Information</h5>
     <p>
       <strong>Username:</strong> {{info.username}}<br/>
@@ -10,4 +10,57 @@
    
   <ng-template #loggedOut>
     Please login.
-  </ng-template>
+  </ng-template> -->
+  <!-- <div class="container">
+    <div class="card">
+        <h3 class="text-center">test list</h3>
+        <div class="card-body">
+            <table class="table table-striped ">
+                <thead>
+                    <th>id</th>
+                    <th>test name</th>
+                    <th>test time</th>
+                    <th>number of question</th> 
+                    <th>create at</th> 
+                  </thead>
+                <tbody>
+                    <tr *ngFor = "let test of tests">
+                        <td>{{test.id}}</td>
+
+                        <td>{{test.test_name}}</td>
+                        <td>{{test.test_time}}</td>
+                        <td>{{test.number_of_questions}}</td> -->
+                        <!-- <td>{{test.creat_at}}</td> -->
+                        
+                        <!-- <td>
+                            <button (click)="updateUser(user.userId)" class="btn btn-info">
+                                Update
+                            </button>
+                            <button (click)="deleteUser(user.userId)" class="btn btn-danger">
+                                Delete
+                            </button>
+                        </td>   -->
+                    <!-- </tr>
+                </tbody>
+            </table> -->
+            <!-- <button class="btn btn-info" (click)="goToAddUser()">add</button> -->
+        <!-- </div>
+    </div>
+</div> -->
+<div style="margin-top: 50px">
+    <div class="container">
+    <div class="row row-cols-4" >
+      <div class="col" *ngFor = "let test of tests">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-bookmark"></i> {{test.test_name}}</h5>
+              <p class="card-text" >thời gian:  {{test.test_time}}</p>
+              <p class="card-text">số câu hỏi:  {{test.number_of_questions}}</p>              
+              <a [routerLink]="['/test-detail', test.id]" class="btn btn-primary">làm bài</a>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+

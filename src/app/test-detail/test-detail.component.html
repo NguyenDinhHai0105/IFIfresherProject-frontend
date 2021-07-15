@@ -1,0 +1,33 @@
+<div style="margin-top: 50px">
+    <div class="container">
+    <div class="row row-cols-4" >
+      <div class="col" >
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-bookmark"></i>{{test?.test_name}}</h5>
+              <p class="card-text" >thời gian:  {{test?.test_time}}</p>
+              <p class="card-text">số câu hỏi:  {{test?.number_of_questions}}</p>              
+              <a [routerLink]="['/test-detail', test?.id]" class="btn btn-primary">làm bài</a>       
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top: 50px">
+    <div class="container">
+    <div class="row row-cols-4" >
+      <div class="col" *ngFor="let question of questions">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-bookmark"></i> {{question.id}}</h5>
+              <p class="card-text" >thời gian:  {{question.question}}</p>
+              <p class="card-text">số câu hỏi:  {{question.question}}</p>              
+
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

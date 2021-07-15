@@ -13,6 +13,8 @@ import { AdminComponent } from './admin/admin.component';
 import { PmComponent } from './pm/pm.component';
  
 import { httpInterceptorProviders } from './auth/auth-interceptor';
+import { FooterComponent } from './footer/footer.component';
+import { TestDetailComponent } from './test-detail/test-detail.component';
  
 @NgModule({
   declarations: [
@@ -22,13 +24,16 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
     RegisterComponent,
     HomeComponent,
     AdminComponent,
-    PmComponent
+    PmComponent,
+    FooterComponent,
+    TestDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule, 
+    
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

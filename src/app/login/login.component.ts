@@ -10,34 +10,38 @@ import { AuthLoginInfo } from '../auth/login-info';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  form: any = {};
+  form: any = {}; // nhận username, password từ form để cho vào loginInfo
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
-  roles: string[] | null | undefined;
-  private loginInfo: AuthLoginInfo | undefined; // thêm undefine
+  roles: string[] | null | undefined; // l
+  private loginInfo: AuthLoginInfo | undefined; // thêm undefine // lưu username, password
  
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(
+    private authService: AuthService, 
+    private tokenStorage: TokenStorageService)
+    {}
  
   ngOnInit() {
-    if (this.tokenStorage.getToken()) {
-      this.isLoggedIn = true;
-      this.roles = this.tokenStorage.getAuthorities();
+    if (this.tokenStorage.getToken()) { // nếu có token
+      this.isLoggedIn = true; // đã đăng nhập đc
+      this.roles = this.tokenStorage.getAuthorities(); // trả về quyền truy cập của user
     }
   }
  
   onSubmit() {
     console.log(this.form);
  
-    this.loginInfo = new AuthLoginInfo(
+    this.loginInfo = new AuthLoginInfo( // tạo thông tin username, password để login
       this.form.username,
-      this.form.password);
+      this.form.password
+      );
  
     this.authService.attemptAuth(this.loginInfo).subscribe(
       (data : any) => {
-        this.tokenStorage.saveToken(data.accessToken);
-        this.tokenStorage.saveUsername(data.username);
-        this.tokenStorage.saveAuthorities(data.authorities);
+        this.tokenStorage.saveToken(data.accessToken); //lấy thông tin từ api để lưu vào sessionstorage
+        this.tokenStorage.saveUsername(data.username); //lấy thông tin từ api để lưu vào sessionstorage
+        this.tokenStorage.saveAuthorities(data.authorities); //lấy thông tin từ api để lưu vào sessionstorage
  
         this.isLoginFailed = false;
         this.isLoggedIn = true;
