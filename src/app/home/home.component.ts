@@ -40,7 +40,6 @@ export class HomeComponent implements OnInit {
 
   getAllTest() {
     this.testService.getAllTest().subscribe(data => {
-      console.log(data);
       this.tests = data;
     })
   }
