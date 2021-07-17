@@ -6,5 +6,6 @@ export class Question {
     answer_c !: string;
     answer_d !: string;    
     correct_answer !: string;
-    img !: string
+    img !: string;
+    select!:string
 }
