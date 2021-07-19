@@ -36,55 +36,68 @@
   </div>
 </div>  -->
 
-<div class="container page mt-sm-5 my-1 row">
-  <div class="col-10">
+<h4 class="test-title">{{test!.test_name}}</h4>
+
+<div class="container page mt-sm-5 my-1 row shadow">
+  <div class="col-9">
     <div id="show_question" class="question ml-sm-5 pl-sm-5 pt-2" *ngIf="question">
       <div>
         <img style="width: 200px;" src="{{question.img}}" alt="">
       </div>
       <div class="py-2 h5">
-        <b>{{question.question}}</b>
+        <b>Câu số {{question.index+1}}: {{question.question}}</b>
       </div>
       <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
-        <label *ngIf="check('a')" class="options">{{question.answer_a}}<input type="radio" name="radio" checked
-            (click)="onclick('a')"> <span class="checkmark"></span> </label>
-        <label *ngIf="!check('a')" class="options">{{question.answer_a}}<input type="radio" name="radio"
-            (click)="onclick('a')"> <span class="checkmark"></span> </label>
-        <label *ngIf="check('b')" class="options">{{question.answer_b}}<input type="radio" name="radio" checked
-            (click)="onclick('b')"> <span class="checkmark"></span> </label>
-        <label *ngIf="!check('b')" class="options">{{question.answer_b}}<input type="radio" name="radio"
-            (click)="onclick('b')"> <span class="checkmark"></span> </label>
-        <label *ngIf="check('c')" class="options">{{question.answer_c}}<input type="radio" name="radio" checked
-            (click)="onclick('c')"> <span class="checkmark"></span> </label>
-        <label *ngIf="!check('c')" class="options">{{question.answer_c}}<input type="radio" name="radio"
-            (click)="onclick('c')"> <span class="checkmark"></span> </label>
-        <label *ngIf="check('d')" class="options">{{question.answer_d}}<input type="radio" name="radio" checked
-            (click)="onclick('d')"> <span class="checkmark"></span> </label>
-        <label *ngIf="!check('d')" class="options">{{question.answer_d}}<input type="radio" name="radio"
-            (click)="onclick('d')"> <span class="checkmark"></span> </label>
+        <label *ngIf="check('a') && question.answer_a" class="options">{{question.answer_a}}<input type="radio" name="radio" checked
+            (click)="onclick('a') "> <span class="checkmark"></span> </label>
+        <label *ngIf="!check('a') && question.answer_a"  class="options">{{question.answer_a}}<input type="radio" name="radio"
+            (click)="onclick('a') "> <span class="checkmark"></span> </label>
+        <label *ngIf="check('b') && question.answer_b" class="options">{{question.answer_b}}<input type="radio" name="radio" checked
+            (click)="onclick('b') "> <span class="checkmark"></span> </label>
+        <label *ngIf="!check('b') && question.answer_b" class="options">{{question.answer_b}}<input type="radio" name="radio"
+            (click)="onclick('b') "> <span class="checkmark"></span> </label>
+        <label *ngIf="check('c') && question.answer_c" class="options">{{question.answer_c}}<input type="radio" name="radio" checked
+            (click)="onclick('c') "> <span class="checkmark"></span> </label>
+        <label *ngIf="!check('c') && question.answer_c" class="options">{{question.answer_c}}<input type="radio" name="radio"
+            (click)="onclick('c' ) "> <span class="checkmark"></span> </label>
+        <label *ngIf="check('d') && question.answer_d" class="options">{{question.answer_d}}<input type="radio" name="radio" checked
+            (click)="onclick('d') "> <span class="checkmark"></span> </label>
+        <label *ngIf="!check('d') && question.answer_d" class="options">{{question.answer_d}}<input type="radio" name="radio"
+            (click)="onclick('d') "> <span class="checkmark"></span> </label>
       </div>
     </div>
-    <div class="d-flex align-items-center pt-3">  
-      <div id="prev"> <button class="btn btn-danger" (click)="goToPreviousQuest(question?.index)" 
-          style="width: 82.06px; height: 36px; margin-left: 2rem;">Trước</button> </div>
-      <div class="ml-auto mr-sm-5"> <button class="btn btn-success" (click)="goToNextQuest(question?.index)" >Sau</button> </div>
+    <div class="d-flex align-items-center pt-3">
+      <div id="prev"> <button class="btn btn-danger" (click)="goToPreviousQuest(question?.index)"
+          style="width: 82.06px; height: 36px; margin-left: 2rem;">Trước</button>
+      </div>
+      <div class="ml-auto mr-sm-5"> <button class="btn btn-success"
+          (click)="goToNextQuest(question!.index)">Sau</button> </div>
     </div>
   </div>
-  <div class="col-2">
+  <div class="col-3">
     <div class="choice-question">
       <div class="container">
-        <p style="font-size: small;">Thời gian: </p>
-        <p style="font-size: small;">
-          <countdown [config]="{ leftTime: 60*test.test_time, format: 'm:ss' }"> </countdown>
+        <p style="font-size: medium; margin-bottom: 1rem;"> <u>Thời gian:
+            <countdown [config]="{ leftTime: 60*test!.test_time, format: 'm:ss' }"> </countdown>
+          </u>
         </p>
-        <div class="row">
+        <div class="row row-cols-auto">
           <div class="col" *ngFor="let question of questions; let i = index">
-            <button type="button" class="btn btn-outline-info" style="width: 60px;" (click)="chooseQuestion(i)">
-              <p>Câu {{i+1}}</p>
+            <div *ngIf="question.select, else notSelected">
+              <button type="button" class="btn btn-outline-info mt-1 ml-1 shadow" style="width: 60px; background-color: #67daff; color: white;" (click)="chooseQuestion(i)">
+              <p style="font-size: 15px;">Câu {{i+1}}</p>
             </button>
+            </div>
+            <ng-template #notSelected>
+              <button type="button" class="btn btn-outline-info mt-1 ml-1 shadow" style="width: 60px;" (click)="chooseQuestion(i)">
+                <p style="font-size: 15px;" >Câu {{i+1}}</p>
+              </button>
+            </ng-template> 
           </div>
         </div>
+      
       </div>
     </div>
   </div>
 </div>
+<button type="button" style="width: 82.06px; height: 36px; color: white;" (click)="getMark()" class="btn btn-info shadow">Nộp bài</button>

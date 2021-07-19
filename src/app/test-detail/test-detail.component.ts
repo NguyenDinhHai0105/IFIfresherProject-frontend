@@ -15,7 +15,7 @@ export class TestDetailComponent implements OnInit {
   questions !: Question[];
   numberOfButton !: number;
   question !: Question;
-  id!: number;
+  //id!: number; ???
 
   constructor(
     private route: ActivatedRoute,
@@ -43,11 +43,11 @@ export class TestDetailComponent implements OnInit {
     this.question.index = index;
   }
 
-  onclick(char : string){
+  onclick(char : string) {
     this.question.select= char ;
   }
 
-  check(char : string){
+  check(char : string) {
     if(this.question.select==char){
       return true;
     }
@@ -55,15 +55,26 @@ export class TestDetailComponent implements OnInit {
   }
 
   goToNextQuest(index = 0) {
-    if(index<=this.questions.length) {
+    if(index<this.questions.length-1) {
       this.chooseQuestion(index+1);
-    } 
+    }
   }
 
   goToPreviousQuest(index = 0) {
-    if(index>=0) {
+    if(index>0) {
       this.chooseQuestion(index-1);
     }
+  }
+
+  getMark() : number{
+    let mark = 0;
+    this.questions.forEach(question => {
+      if(question.correct_answer==question.select){
+        mark++;
+      }
+    });
+    console.log(mark);
+    return mark;
   }
 
 }

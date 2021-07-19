@@ -7,6 +7,6 @@ export class Question {
     answer_d !: string;    
     correct_answer !: string;
     img !: string;
-    select!:string;
-    index!: number;
+    select!:string; // lưu lựa chọn người dùng
+    index!: number; 
 }

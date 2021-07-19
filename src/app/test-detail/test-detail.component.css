@@ -104,5 +104,15 @@ body {
 }
 
 .page{
-    width: 80%;
+    width: 90%;
+}
+
+.test-title { 
+    margin-bottom: -1rem;
+    margin-top: 2rem;
+    text-decoration: underline;
+}
+
+.shadow {
+    box-shadow: 1px 1px 2px 1px #888888;
 }
