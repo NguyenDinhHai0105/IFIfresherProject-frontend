@@ -7,5 +7,6 @@ export class Question {
     answer_d !: string;    
     correct_answer !: string;
     img !: string;
-    select!:string
+    select!:string;
+    index!: number;
 }

@@ -26,20 +26,21 @@ export class TestDetailComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     const testIdFromRoute = Number(routeParams.get('id'));
     this.testService.getTestById(testIdFromRoute).subscribe(data => {
-      console.log(data);
+      console.log(data);//
       this.test = data;
       this.questions = this.test.questions;
-      console.log(this.questions);
+      console.log(this.questions);//
       this.chooseQuestion();
     });
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
     this.getDetailTest();
   }
 
   chooseQuestion(index = 0) {
     this.question = this.questions[index];
+    this.question.index = index;
   }
 
   onclick(char : string){
@@ -53,12 +54,16 @@ export class TestDetailComponent implements OnInit {
     return false;
   }
 
-  goToNextQuest() {
-
+  goToNextQuest(index = 0) {
+    if(index<=this.questions.length) {
+      this.chooseQuestion(index+1);
+    } 
   }
 
-  goToPreviousQuest() {
-
+  goToPreviousQuest(index = 0) {
+    if(index>=0) {
+      this.chooseQuestion(index-1);
+    }
   }
 
 }
