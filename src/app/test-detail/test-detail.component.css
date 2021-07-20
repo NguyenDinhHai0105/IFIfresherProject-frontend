@@ -124,3 +124,28 @@ body {
     font-size: medium; 
     margin-bottom: 1rem;
 }
+
+.mark {
+    position: absolute;
+    top: 170px;
+    right: 160px;
+    width: 250px;
+    height: 220px;
+    background-color: #fafafa;
+    border-radius: 15px;
+    
+}
+
+#mark {
+    
+    margin: 20px 0px 0px 20px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: medium; 
+}
+
+#img {
+    width: 120px;
+    border-radius: 5px;    
+}
+

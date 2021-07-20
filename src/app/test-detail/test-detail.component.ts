@@ -4,6 +4,7 @@ import { Question } from '../question';
 import { Test } from '../test';
 import { TestService } from '../test.service';
 
+declare var $: any;
 @Component({
   selector: 'app-test-detail',
   templateUrl: './test-detail.component.html',
@@ -16,6 +17,10 @@ export class TestDetailComponent implements OnInit {
   numberOfButton !: number;
   question !: Question;
   //id!: number; ???
+  mark !: number;
+  count = 0;
+  isSubmit = true;
+  
 
   constructor(
     private route: ActivatedRoute,
@@ -34,7 +39,7 @@ export class TestDetailComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {  
     this.getDetailTest();
   }
 
@@ -44,10 +49,11 @@ export class TestDetailComponent implements OnInit {
   }
 
   onclick(char : string) {
-    this.question.select= char ;
+    this.question.select= char; // lưu đáp án người dùng chọn cho câu hỏi hiện tại
+    this.count ++;
   }
 
-  check(char : string) {
+  check(char : string) { // hàm kiểm tra hiển thị đáp án người dùng chọn
     if(this.question.select==char){
       return true;
     }
@@ -66,15 +72,15 @@ export class TestDetailComponent implements OnInit {
     }
   }
 
-  getMark() : number{
+  getMark() : void{
     let mark = 0;
     this.questions.forEach(question => {
       if(question.correct_answer==question.select){
         mark++;
       }
     });
-    console.log(mark);
-    return mark;
+    this.mark = mark;
+    this.isSubmit = false;
   }
 
 }

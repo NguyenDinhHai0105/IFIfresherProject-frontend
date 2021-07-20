@@ -47,16 +47,15 @@
         <!-- </div>
     </div>
 </div> -->
-<div style="margin-top: 50px">
+<div style="margin-top: 50px ">
+  
     <div class="container">
-    <div class="row row-cols-4" >
-      <div class="col" *ngFor = "let test of tests">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title"><i class="bi bi-bookmark"></i> {{test.test_name}}</h5>
-              <p class="card-text" >thời gian:  {{test.test_time}}</p>
-              <p class="card-text">số câu hỏi:  {{test.number_of_questions}}</p>              
-              <a [routerLink]="['/test-detail', test.id]" class="btn btn-primary">làm bài</a>
+    <div class="row row-cols-auto" >
+      <div class="col" >
+        <div class="card shadow" style="width: 16rem; margin-bottom: 20px;" type="button" (click)="goToTest()">
+            <div class="card-body home-img d-flex ">
+              <img src="https://image.flaticon.com/icons/png/512/3048/3048736.png" alt="" class="home-img">
+              <h5 class="card-title" style="margin-top: 15px;"> Thi thử đề tạo sẵn</h5>          
             </div>
           </div>
       </div>

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
- 
+
 import { TokenStorageService } from '../auth/token-storage.service';
 import { Test } from '../test';
 import { TestService } from '../test.service';
- 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,9 +12,9 @@ import { TestService } from '../test.service';
 })
 export class HomeComponent implements OnInit {
   // info: any;
- 
+
   // constructor(private token: TokenStorageService) { }
- 
+
   // ngOnInit() {
   //   this.info = {
   //     token: this.token.getToken(),
@@ -22,25 +23,17 @@ export class HomeComponent implements OnInit {
   //   };
   // }
 
-
-  tests!: Test[] ;
   constructor(
-    private testService: TestService,
-    private token: TokenStorageService
-  ){}
- 
-  logout() {
-    this.token.signOut();
-    window.location.reload();
-  }
-  
-  ngOnInit(): void {
-    this.getAllTest();
+    private router: Router
+  ) { }
+
+  ngOnInit() {
+
   }
 
-  getAllTest() {
-    this.testService.getAllTest().subscribe(data => {
-      this.tests = data;
-    })
+  goToTest() {
+    this.router.navigate(['test']);
   }
+
+
 }

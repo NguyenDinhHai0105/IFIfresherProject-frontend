@@ -78,7 +78,7 @@
     <div class="choice-question">
       <div class="container">
         <p class="countdown"> <u>
-            <countdown [config]="{ leftTime: 60*test!.test_time, format: 'm:ss' }"> </countdown>
+            <countdown [config]="{ leftTime: 60*test!.test_time, format: 'mm:ss' }"> </countdown>
           </u>
         </p>
         <div class="row row-cols-auto">
@@ -101,5 +101,32 @@
     </div>
   </div>
 </div>
-<button type="button" style="width: 82.06px; height: 36px; color: white; margin-top: 0.4rem; margin-bottom: 0.6rem;" 
-(click)="getMark()" class="btn btn-info shadow">Nộp bài</button>
+
+<div *ngIf="count>=questions.length && isSubmit, else notEnough">
+  <button id="dis" type="button"
+    style="width: 82.06px; height: 36px; color: white; margin-top: 0.4rem; margin-bottom: 0.6rem;" (click)="getMark()"
+    class="btn btn-info shadow">Nộp bài</button>
+</div>
+<ng-template #notEnough> <button id="disableButton" type="button"
+    style="width: 82.06px; height: 36px; color: white; background-color: #a4a4a4; margin-top: 0.4rem; margin-bottom: 0.6rem;"
+    disabled class="btn shadow">Nộp bài</button> </ng-template>
+
+<div class="mark shadow" *ngIf="mark>=0">
+  <h2 id="mark"> Điểm {{mark}}/{{questions.length}} </h2>
+  <div *ngIf="mark>=questions.length, else notAchieved">
+    <h3 style="color: #60ad5e; text-align: center"> <i class="bi bi-check2-all"></i> Đạt </h3>
+    <div class="d-flex justify-content-center">
+      <img src="https://cdn.dribbble.com/users/1476693/screenshots/7986326/media/0ccb1c2ddad5ef34f7df874a20be74e2.gif"
+        alt="" style="margin: 10px 10px 10px 10px; width: 170px; border-radius: 7px;">
+    </div>
+  </div>
+  <ng-template #notAchieved>
+    <h2 style="color: #ff6161; text-align: center;"><i class="bi bi-x-lg"></i> Không đạt </h2>
+    <div class="d-flex justify-content-center">
+      <img src="https://thumbs.gfycat.com/AptDifferentGrunion.webp"
+        alt="" id="img" style="margin: 10px 10px 10px 10px;">
+    </div>
+  </ng-template>
+
+
+</div>
