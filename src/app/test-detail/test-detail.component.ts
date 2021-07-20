@@ -18,8 +18,8 @@ export class TestDetailComponent implements OnInit {
   question !: Question;
   //id!: number; ???
   mark !: number;
-  count = 0;
-  isSubmit = true;
+  count = 0; // tính điểm, = 0 để kiểm tra
+  isSubmit = true; // khi nộp bài thì chuyển thành false để disable button nộp bài
   
 
   constructor(
@@ -48,39 +48,39 @@ export class TestDetailComponent implements OnInit {
     this.question.index = index;
   }
 
-  onclick(char : string) {
-    this.question.select= char; // lưu đáp án người dùng chọn cho câu hỏi hiện tại
-    this.count ++;
+  onclick(char: string) {
+    this.question.select = char; // lưu đáp án người dùng chọn cho câu hỏi hiện tại
+    this.count++; // tăng lên để khi người dùng trả lời đủ câu hỏi thì cho nộp bài
   }
 
-  check(char : string) { // hàm kiểm tra hiển thị đáp án người dùng chọn
-    if(this.question.select==char){
+  check(char: string) { // hàm kiểm tra hiển thị đáp án người dùng chọn
+    if (this.question.select == char) {
       return true;
     }
     return false;
   }
 
   goToNextQuest(index = 0) {
-    if(index<this.questions.length-1) {
-      this.chooseQuestion(index+1);
+    if (index < this.questions.length - 1) {
+      this.chooseQuestion(index + 1);
     }
   }
 
   goToPreviousQuest(index = 0) {
-    if(index>0) {
-      this.chooseQuestion(index-1);
+    if (index > 0) {
+      this.chooseQuestion(index - 1);
     }
   }
 
-  getMark() : void{
+  getMark(): void {
     let mark = 0;
     this.questions.forEach(question => {
-      if(question.correct_answer==question.select){
+      if (question.correct_answer == question.select) {
         mark++;
       }
     });
     this.mark = mark;
-    this.isSubmit = false;
+    this.isSubmit = false; // chuyển thành fasle để disale button nộp bài
   }
 
 }

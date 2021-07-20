@@ -38,6 +38,7 @@
 
 <h4 class="test-title">{{test!.test_name}}</h4>
 
+<!-- hiển thị thông tin câu hỏi -->
 <div class="container page mt-sm-5 my-1 row shadow">
   <div class="col-9" style="  border-right: 1px solid #cfcfcf; ">
     <div id="show_question" class="question ml-sm-5 pl-sm-5 pt-2 " *ngIf="question">
@@ -74,6 +75,8 @@
           (click)="goToNextQuest(question!.index)">Sau</button> </div>
     </div>
   </div>
+
+  <!-- hiển thị các button chọn câu -->
   <div class="col-3">
     <div class="choice-question">
       <div class="container">
@@ -101,7 +104,7 @@
     </div>
   </div>
 </div>
-
+<!-- button nộp bài  -->
 <div *ngIf="count>=questions.length && isSubmit, else notEnough">
   <button id="dis" type="button"
     style="width: 82.06px; height: 36px; color: white; margin-top: 0.4rem; margin-bottom: 0.6rem;" (click)="getMark()"
@@ -127,6 +130,4 @@
         alt="" id="img" style="margin: 10px 10px 10px 10px;">
     </div>
   </ng-template>
-
-
 </div>
