@@ -16,6 +16,7 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { FooterComponent } from './footer/footer.component';
 import { TestDetailComponent } from './test-detail/test-detail.component';
 import { TestComponent } from './test/test.component';
+import { RandomTestComponent } from './random-test/random-test.component';
  
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { TestComponent } from './test/test.component';
     PmComponent,
     FooterComponent,
     TestDetailComponent,
-    TestComponent
+    TestComponent,
+    RandomTestComponent
   ],
   imports: [
     BrowserModule,

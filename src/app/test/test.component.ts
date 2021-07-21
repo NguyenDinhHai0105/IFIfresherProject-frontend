@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
  
 import { TokenStorageService } from '../auth/token-storage.service';
 import { Test } from '../test';
-import { TestService } from '../test.service';
+import { TestService } from '../services/test.service';
 
 @Component({
   selector: 'app-test',

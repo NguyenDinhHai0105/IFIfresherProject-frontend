@@ -1,18 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Question } from '../question';
-import { Test } from '../test';
 import { TestService } from '../services/test.service';
 
-
 @Component({
-  selector: 'app-test-detail',
-  templateUrl: './test-detail.component.html',
-  styleUrls: ['./test-detail.component.css']
+  selector: 'app-random-test',
+  templateUrl: './random-test.component.html',
+  styleUrls: ['./random-test.component.css']
 })
-export class TestDetailComponent implements OnInit {
+export class RandomTestComponent implements OnInit {
 
-  test !: Test;
   questions !: Question[];
   numberOfButton !: number;
   question !: Question;
@@ -28,8 +25,8 @@ export class TestDetailComponent implements OnInit {
   }
 
   countTime() {
-    setInterval(()=>{this.limitTime()}, this.test.test_time*60*1000 - 1000*60);  
-    setInterval(()=>{this.getMark()}, this.test.test_time*60*1000);
+    setInterval(()=>{this.limitTime()}, 1000);  
+    setInterval(()=>{this.getMark()}, 1000);
   }
 
   constructor(
@@ -38,12 +35,9 @@ export class TestDetailComponent implements OnInit {
   ) { }
 
   getDetailTest(): void {
-    const routeParams = this.route.snapshot.paramMap;
-    const testIdFromRoute = Number(routeParams.get('id'));
-    this.testService.getTestById(testIdFromRoute).subscribe(data => {
+    this.testService.getRandomTest().subscribe(data => {
       console.log(data);//
-      this.test = data;
-      this.questions = this.test.questions;
+      //this.questions = data;
       console.log(this.questions);//
       this.chooseQuestion();     
       this.countTime();
