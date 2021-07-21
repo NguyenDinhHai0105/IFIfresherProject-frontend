@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { TokenStorageService } from '../auth/token-storage.service';
 import { Test } from '../test';
-import { TestService } from '../test.service';
+import { TestService } from '../services/test.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -33,6 +33,10 @@ export class HomeComponent implements OnInit {
 
   goToTest() {
     this.router.navigate(['test']);
+  }
+
+  goToRandomTest() {
+    this.router.navigate(['random-test']);
   }
 
 

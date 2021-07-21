@@ -36,7 +36,7 @@
   </div>
 </div>  -->
 
-<h4 class="test-title">{{test!.test_name}}</h4>
+<h4 class="test-title">{{test?.test_name}}</h4>
 
 <!-- hiển thị thông tin câu hỏi -->
 <div class="container page mt-sm-5 my-1 row shadow">
@@ -80,8 +80,8 @@
   <div class="col-3">
     <div class="choice-question">
       <div class="container">
-        <p class="countdown"> <u>
-            <countdown [config]="{ leftTime: 60*test!.test_time, format: 'mm:ss' }"> </countdown>
+        <p class="countdown" [style]="{'color': time ? '#0064b7' : '#ff6161'}"> <u>
+            <countdown [config]="{ leftTime: test?.test_time*60, format: 'mm:ss' }"> </countdown>
           </u>
         </p>
         <div class="row row-cols-auto">
@@ -104,6 +104,7 @@
     </div>
   </div>
 </div>
+
 <!-- button nộp bài  -->
 <div *ngIf="count>=questions.length && isSubmit, else notEnough">
   <button id="dis" type="button"
@@ -114,6 +115,7 @@
     style="width: 82.06px; height: 36px; color: white; background-color: #a4a4a4; margin-top: 0.4rem; margin-bottom: 0.6rem;"
     disabled class="btn shadow">Nộp bài</button> </ng-template>
 
+<!-- hiện kết quả  -->
 <div class="mark shadow" *ngIf="mark>=0">
   <h2 id="mark"> Điểm {{mark}}/{{questions.length}} </h2>
   <div *ngIf="mark>=questions.length, else notAchieved">

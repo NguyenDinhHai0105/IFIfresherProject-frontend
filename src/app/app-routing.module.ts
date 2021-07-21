@@ -9,6 +9,7 @@ import { PmComponent } from './pm/pm.component';
 import { AdminComponent } from './admin/admin.component';
 import { TestDetailComponent } from './test-detail/test-detail.component';
 import { TestComponent } from './test/test.component';
+import { RandomTestComponent } from './random-test/random-test.component';
  
 const routes: Routes = [
     {
@@ -18,6 +19,10 @@ const routes: Routes = [
     {
         path: 'test',
         component: TestComponent
+    },
+    {
+        path: 'random-test',
+        component: RandomTestComponent
     },
     {
         path: 'user',
