@@ -74,7 +74,7 @@ export class TestDetailComponent implements OnInit {
 
   getMark(): void {
     let mark = 0;
-    this.questions.forEach(question => {
+    this.questions?.forEach(question => {
       if (question.correct_answer == question.select) {
         mark++;
       }
