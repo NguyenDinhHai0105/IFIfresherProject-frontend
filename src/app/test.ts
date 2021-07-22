@@ -7,4 +7,8 @@ export class Test {
     number_of_questions !: number;
     creat_at !: string;    
     questions !: Question[];
+
+    constructor() {
+        
+    }
 }

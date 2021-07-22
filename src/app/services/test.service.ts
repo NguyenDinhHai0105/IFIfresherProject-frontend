@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Question } from '../question';
 import { Test } from '../test';
 
 @Injectable({
@@ -9,7 +10,7 @@ import { Test } from '../test';
 export class TestService {
 
   private baseURl = "http://localhost:8080/home";
-  private random = "http://localhost:8080//api/questions/random";
+  private random = "http://localhost:8080/api/questions/random";
 
   constructor(
     private http : HttpClient
@@ -19,8 +20,8 @@ export class TestService {
     return this.http.get<Test[]>(`${this.baseURl}`);
   }
 
-  getRandomTest(): Observable<Test[]> {
-    return this.http.get<Test[]>(`${this.baseURl}`);
+  getRandomTest(): Observable<Question[]> {
+    return this.http.get<Question[]>(`${this.random}`);
   }
 
   getTestById(id: number): Observable<Test> {

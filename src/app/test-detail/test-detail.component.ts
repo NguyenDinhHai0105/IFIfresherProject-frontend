@@ -16,7 +16,6 @@ export class TestDetailComponent implements OnInit {
   questions !: Question[];
   numberOfButton !: number;
   question !: Question;
-  //id!: number; ???
   mark !: number;//tính điểm
   count = 0; // nếu count >= số câu hỏi người dùng đã chọn thì click được button nộp bài
   isSubmit = true; // khi nộp bài thì chuyển thành false để disable button nộp bài

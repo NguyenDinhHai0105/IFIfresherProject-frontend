@@ -13,7 +13,6 @@ export class RandomTestComponent implements OnInit {
   questions !: Question[];
   numberOfButton !: number;
   question !: Question;
-  //id!: number; ???
   mark !: number;//tính điểm
   count = 0; // nếu count >= số câu hỏi người dùng đã chọn thì click được button nộp bài
   isSubmit = true; // khi nộp bài thì chuyển thành false để disable button nộp bài
@@ -25,8 +24,8 @@ export class RandomTestComponent implements OnInit {
   }
 
   countTime() {
-    setInterval(()=>{this.limitTime()}, 1000);  
-    setInterval(()=>{this.getMark()}, 1000);
+    setInterval(()=>{this.limitTime()}, 20*60*1000-1000*60);  
+    setInterval(()=>{this.getMark()}, 20*60*1000);
   }
 
   constructor(
@@ -37,7 +36,7 @@ export class RandomTestComponent implements OnInit {
   getDetailTest(): void {
     this.testService.getRandomTest().subscribe(data => {
       console.log(data);//
-      //this.questions = data;
+      this.questions = data;
       console.log(this.questions);//
       this.chooseQuestion();     
       this.countTime();
