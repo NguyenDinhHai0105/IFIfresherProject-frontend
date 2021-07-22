@@ -15,24 +15,13 @@ export class TestDetailComponent implements OnInit {
   @Input() test !: Test;
   @Input() questions !: Question[];
   @Input() question !: Question;
-
   //@Output() submit : EventEmitter<any> = new EventEmitter();
-
   numberOfButton !: number;
   mark !: number;//tính điểm
   count = 0; // nếu count >= số câu hỏi người dùng đã chọn thì click được button nộp bài
   isSubmit = true; // khi nộp bài thì chuyển thành false để disable button nộp bài
-  time = true; // 
+  time = true; // time bằng false thì nộp bài, disable button nộp bài
 
-  
-  limitTime() {
-    this.time = false;
-  }
-
-  countTime() {
-    setInterval(()=>{this.limitTime()}, this.test.test_time*60*1000 - 1000*60);  
-    setInterval(()=>{this.getMark()}, this.test.test_time*60*1000);
-  }
 
   constructor(
     private route: ActivatedRoute,
@@ -41,6 +30,16 @@ export class TestDetailComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.countTime();
+  }
+
+  limitTime() {
+    this.time = false;
+  }
+
+  countTime() {
+    setInterval(() => { this.limitTime() }, this.test.test_time * 60 * 1000 - 1000 * 60);
+    setInterval(() => { this.getMark() }, this.test.test_time * 60 * 1000);
   }
 
   chooseQuestion(index = 0) {
@@ -81,14 +80,5 @@ export class TestDetailComponent implements OnInit {
     });
     this.mark = mark;
     this.isSubmit = false; // chuyển thành fasle để disale button nộp bài
-    if(localStorage.getItem('user')){
-      this.submit();
-    }
-    
   }
-
-  submit(){
-
-  }
-
 }

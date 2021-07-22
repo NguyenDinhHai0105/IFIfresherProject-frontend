@@ -22,13 +22,11 @@ export class HomeComponent implements OnInit {
   //     authorities: this.token.getAuthorities()
   //   };
   // }
-
   constructor(
     private router: Router
   ) { }
 
   ngOnInit() {
-
   }
 
   goToTest() {
@@ -38,6 +36,5 @@ export class HomeComponent implements OnInit {
   goToRandomTest() {
     this.router.navigate(['random-test']);
   }
-
 
 }

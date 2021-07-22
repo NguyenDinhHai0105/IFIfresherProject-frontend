@@ -39,9 +39,7 @@ export class RandomTestComponent implements OnInit {
 
   getRandomTest(): void {
     this.testService.getRandomTest().subscribe(data => {
-      console.log(data)
       this.test = data;
-      console.log(this.test)
       this.questions = this.test.questions;
       this.getIndex();
       console.log(this.questions);
@@ -53,9 +51,7 @@ export class RandomTestComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("hello"); 
     this.getRandomTest();
-    
   }
 
   getIndex(){

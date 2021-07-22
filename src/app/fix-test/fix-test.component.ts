@@ -24,32 +24,24 @@ export class FixTestComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     const testIdFromRoute = Number(routeParams.get('id'));
     this.testService.getTestById(testIdFromRoute).subscribe(data => {
-      console.log(data)
       this.test = data;
       console.log(this.test)
       this.questions = this.test.questions;
       this.getIndex();
-      console.log(this.questions);
       this.question = this.questions[0];
-      // console.log(this.questions);//
-      // this.chooseQuestion();     
-      // this.countTime();
     });
   }
 
   ngOnInit() {
-    console.log("hello"); 
     this.getFixTest();
-    
+
   }
 
-  getIndex(){
+  getIndex() {
     let i = 0;
-    this.questions.forEach(q => {
-      q.index = i;
+    this.questions.forEach(question => {
+      question.index = i;
       i++;
     });
   }
-  
-
 }
