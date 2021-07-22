@@ -10,6 +10,7 @@ import { AdminComponent } from './admin/admin.component';
 import { TestDetailComponent } from './test-detail/test-detail.component';
 import { TestComponent } from './test/test.component';
 import { RandomTestComponent } from './random-test/random-test.component';
+import { FixTestComponent } from './fix-test/fix-test.component';
  
 const routes: Routes = [
     {
@@ -34,7 +35,7 @@ const routes: Routes = [
     },
     {
         path: 'test-detail/:id',
-        component: TestDetailComponent
+        component: FixTestComponent
     },
     {
         path: 'admin',

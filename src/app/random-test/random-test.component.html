@@ -6,10 +6,8 @@
         <p class="card-text"></p>
     </div>
 </div>
-<div class="container page mt-sm-5 my-1 row shadow">
-    <div class="col-9" style="  border-right: 1px solid #cfcfcf; ">
         <!-- hiển thị thông tin câu hỏi -->
-        <div id="show_question" class="question ml-sm-5 pl-sm-5 pt-2 " *ngIf="question">
+        <!-- <div id="show_question" class="question ml-sm-5 pl-sm-5 pt-2 " *ngIf="question">
             <div>
                 <img style="width: 200px; border-radius: 7px;" src="{{question.img}}" alt="">
             </div>
@@ -34,19 +32,21 @@
                 <label *ngIf="!check('d') && question.answer_d" class="options">{{question.answer_d}}<input type="radio"
                         name="radio" (click)="onclick('d') "> <span class="checkmark"></span> </label>
             </div>
-        </div> 
+        </div>  -->
+
         <!-- button câu trước câu sau -->
-        <div class="d-flex align-items-center pt-3">
+
+        <!-- <div class="d-flex align-items-center pt-3">
             <div id="prev"> <button class="btn btn-danger" (click)="goToPreviousQuest(question?.index)"
                     style="width: 82.06px; height: 36px; margin-left: 2rem;">Trước</button>
             </div>
             <div class="ml-auto mr-sm-5"> <button class="btn btn-success"
                     (click)="goToNextQuest(question!.index)">Sau</button> </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- hiển thị các button chọn câu -->
-    <div class="col-3">
+    <!-- <div class="col-3">
         <div class="choice-question">
             <div class="container">
                 <p class="countdown" [style]="{'color': time ? '#0064b7' : '#ff6161'}">
@@ -76,20 +76,20 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- button nộp bài  -->
-<div *ngIf="count>=questions.length && isSubmit, else notEnough">
+<!-- <div *ngIf="count>=questions.length && isSubmit, else notEnough">
     <button id="dis" type="button"
         style="width: 82.06px; height: 36px; color: white; margin-top: 0.4rem; margin-bottom: 0.6rem;"
         (click)="getMark()" class="btn btn-info shadow">Nộp bài</button>
 </div>
 <ng-template #notEnough> <button id="disableButton" type="button"
         style="width: 82.06px; height: 36px; color: white; background-color: #a4a4a4; margin-top: 0.4rem; margin-bottom: 0.6rem;"
-        disabled class="btn shadow">Nộp bài</button> </ng-template>
+        disabled class="btn shadow">Nộp bài</button> </ng-template> -->
 
 <!-- hiện kết quả  -->
-<div class="mark shadow" *ngIf="mark>=0">
+<!-- <div class="mark shadow" *ngIf="mark>=0">
     <h2 id="mark"> Điểm {{mark}}/{{questions.length}} </h2>
     <div *ngIf="mark>=questions.length, else notAchieved">
         <h3 style="color: #60ad5e; text-align: center"> <i class="bi bi-check2-all"></i> Đạt </h3>
@@ -105,4 +105,6 @@
                 style="margin: 10px 10px 10px 10px;">
         </div>
     </ng-template>
-</div>
+</div> -->
+
+<app-test-detail [questions] = "questions" [question] = "question" ></app-test-detail>

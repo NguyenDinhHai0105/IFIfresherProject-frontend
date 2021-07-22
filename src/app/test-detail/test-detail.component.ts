@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Question } from '../question';
 import { Test } from '../test';
@@ -14,8 +14,11 @@ export class TestDetailComponent implements OnInit {
 
   @Input() test !: Test;
   @Input() questions !: Question[];
+  @Input() question !: Question;
+
+  //@Output() submit : EventEmitter<any> = new EventEmitter();
+
   numberOfButton !: number;
-  question !: Question;
   mark !: number;//tính điểm
   count = 0; // nếu count >= số câu hỏi người dùng đã chọn thì click được button nộp bài
   isSubmit = true; // khi nộp bài thì chuyển thành false để disable button nộp bài
@@ -36,20 +39,8 @@ export class TestDetailComponent implements OnInit {
     private testService: TestService
   ) { }
 
-  getDetailTest(): void {
-    const routeParams = this.route.snapshot.paramMap;
-    const testIdFromRoute = Number(routeParams.get('id'));
-    this.testService.getTestById(testIdFromRoute).subscribe(data => {
-      this.test = data;
-      this.questions = this.test.questions;
-      this.chooseQuestion();     
-      this.countTime();
-    });
-  }
 
   ngOnInit(): void {
-    // console.log(this.test) 
-    this.getDetailTest();
   }
 
   chooseQuestion(index = 0) {
@@ -90,6 +81,14 @@ export class TestDetailComponent implements OnInit {
     });
     this.mark = mark;
     this.isSubmit = false; // chuyển thành fasle để disale button nộp bài
+    if(localStorage.getItem('user')){
+      this.submit();
+    }
+    
+  }
+
+  submit(){
+
   }
 
 }

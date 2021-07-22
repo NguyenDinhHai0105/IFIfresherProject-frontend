@@ -10,7 +10,7 @@ import { Test } from '../test';
 export class TestService {
 
   private baseURl = "http://localhost:8080/home";
-  private random = "http://localhost:8080/api/questions/random";
+  private random = "http://localhost:8080/api/tests/random";
 
   constructor(
     private http : HttpClient
@@ -20,8 +20,8 @@ export class TestService {
     return this.http.get<Test[]>(`${this.baseURl}`);
   }
 
-  getRandomTest(): Observable<Question[]> {
-    return this.http.get<Question[]>(`${this.random}`);
+  getRandomTest(): Observable<Test> {
+    return this.http.get<Test>(`${this.random}`);
   }
 
   getTestById(id: number): Observable<Test> {

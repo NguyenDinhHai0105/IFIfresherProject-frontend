@@ -17,6 +17,7 @@ import { FooterComponent } from './footer/footer.component';
 import { TestDetailComponent } from './test-detail/test-detail.component';
 import { TestComponent } from './test/test.component';
 import { RandomTestComponent } from './random-test/random-test.component';
+import { FixTestComponent } from './fix-test/fix-test.component';
  
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { RandomTestComponent } from './random-test/random-test.component';
     FooterComponent,
     TestDetailComponent,
     TestComponent,
-    RandomTestComponent
+    RandomTestComponent,
+    FixTestComponent,
   ],
   imports: [
     BrowserModule,
