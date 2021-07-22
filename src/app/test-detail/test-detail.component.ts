@@ -12,8 +12,8 @@ import { TestService } from '../services/test.service';
 })
 export class TestDetailComponent implements OnInit {
 
-  test !: Test;
-  questions !: Question[];
+  @Input() test !: Test;
+  @Input() questions !: Question[];
   numberOfButton !: number;
   question !: Question;
   mark !: number;//tính điểm
@@ -40,16 +40,15 @@ export class TestDetailComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     const testIdFromRoute = Number(routeParams.get('id'));
     this.testService.getTestById(testIdFromRoute).subscribe(data => {
-      console.log(data);//
       this.test = data;
       this.questions = this.test.questions;
-      console.log(this.questions);//
       this.chooseQuestion();     
       this.countTime();
     });
   }
 
-  ngOnInit(): void {  
+  ngOnInit(): void {
+    // console.log(this.test) 
     this.getDetailTest();
   }
 

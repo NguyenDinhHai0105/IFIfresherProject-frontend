@@ -1,42 +1,3 @@
-<!-- <div style="margin-top: 50px">
-    <div class="container">
-    <div class="row row-cols-4" >
-      <div class="col" >
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title"><i class="bi bi-bookmark"></i>{{test?.test_name}}</h5>
-              <p class="card-text" >thời gian:  {{test?.test_time}}</p>
-              <p class="card-text">số câu hỏi:  {{test?.number_of_questions}}</p>              
-              <a [routerLink]="['/test-detail', test?.id]" class="btn btn-primary">làm bài</a>       
-            </div>
-          </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- <div style="margin-top: 50px">
-    <div class="container">
-    <div class="row row-cols-4" >
-      <div class="col" *ngIf="question">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title"><i class="bi bi-bookmark"></i> {{question.id}}</h5>
-              <p class="card-text">số câu hỏi:  {{question.question}}</p>              
-              <p class="card-text" >Đáp án a:  {{question.answer_a}}</p>
-              <p class="card-text" >Đáp án b:  {{question.answer_b}}</p>
-              <p class="card-text" >Đáp án c:  {{question.answer_c}}</p>
-              <p class="card-text" >Đáp án d:  {{question.answer_d}}</p>
-              <p class="card-text" >Đáp án đúng:  {{question.correct_answer}}</p>
-
-            </div>
-          </div>
-      </div>
-    </div>
-  </div>
-</div>  -->
-
-
 <div class="test-des" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title">----Thi thử ngẫu nhiên----</h5>
@@ -73,7 +34,8 @@
                 <label *ngIf="!check('d') && question.answer_d" class="options">{{question.answer_d}}<input type="radio"
                         name="radio" (click)="onclick('d') "> <span class="checkmark"></span> </label>
             </div>
-        </div>
+        </div> 
+        <!-- button câu trước câu sau -->
         <div class="d-flex align-items-center pt-3">
             <div id="prev"> <button class="btn btn-danger" (click)="goToPreviousQuest(question?.index)"
                     style="width: 82.06px; height: 36px; margin-left: 2rem;">Trước</button>
@@ -88,7 +50,8 @@
         <div class="choice-question">
             <div class="container">
                 <p class="countdown" [style]="{'color': time ? '#0064b7' : '#ff6161'}">
-                    <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-24.jpg" class="hourgrass" alt="">
+                    <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-24.jpg"
+                        style="width: 50px;" alt="">
                     <u>
                         <countdown [config]="{ leftTime: 20*60, format: 'mm:ss' }"> </countdown>
                     </u>

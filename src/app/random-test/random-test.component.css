@@ -126,7 +126,7 @@ body {
 
 .mark {
     position: absolute;
-    top: 200px;
+    top: 170px;
     right: 160px;
     width: 250px;
     height: 220px;
@@ -153,8 +153,4 @@ body {
     background-color: #e3f2fd;
     padding: 10px;
     border-radius: 7px;
-}
-
-.hourgrass {
-    width: 50px;
 }
