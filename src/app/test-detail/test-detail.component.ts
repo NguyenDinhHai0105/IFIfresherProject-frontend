@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Question } from '../question';
 import { Test } from '../test';
 import { TestService } from '../services/test.service';
+import { DateTime } from 'luxon'
 
 
 @Component({
@@ -15,12 +16,13 @@ export class TestDetailComponent implements OnInit {
   @Input() test !: Test;
   @Input() questions !: Question[];
   @Input() question !: Question;
-  //@Output() submit : EventEmitter<any> = new EventEmitter();
+  @Output() submit: EventEmitter<any> = new EventEmitter();
   numberOfButton !: number;
   mark !: number;//tính điểm
   count = 0; // nếu count >= số câu hỏi người dùng đã chọn thì click được button nộp bài
   isSubmit = true; // khi nộp bài thì chuyển thành false để disable button nộp bài
   time = true; // time bằng false thì nộp bài, disable button nộp bài
+  timeStart?: number
 
 
   constructor(
@@ -28,18 +30,31 @@ export class TestDetailComponent implements OnInit {
     private testService: TestService
   ) { }
 
+  getTimeNowBySecond(): number {
+    let timeNow = DateTime.now()
+    return timeNow.hour * 3600 + timeNow.minute * 60 + timeNow.second;
+  }
+
+  countDown() {
+    return this.test.test_time * 60 + this.timeStart! - this.getTimeNowBySecond();
+  }
 
   ngOnInit(): void {
-    this.countTime();
+    this.timeStart = this.getTimeNowBySecond();
+    setInterval(() => { this.checkevent() }, 1000);
   }
 
   limitTime() {
     this.time = false;
   }
 
-  countTime() {
-    setInterval(() => { this.limitTime() }, this.test.test_time * 60 * 1000 - 1000 * 60);
-    setInterval(() => { this.getMark() }, this.test.test_time * 60 * 1000);
+  checkevent() {
+    if (this.countDown() <= 60) {
+      this.limitTime();
+    }
+    if (this.countDown() <= 0) {
+      this.getMark();
+    }
   }
 
   chooseQuestion(index = 0) {
@@ -71,14 +86,17 @@ export class TestDetailComponent implements OnInit {
     }
   }
 
-  getMark(): void {
+  async getMark() {
     let mark = 0;
-    this.questions?.forEach(question => {
+    await this.questions?.forEach(question => {
       if (question.correct_answer == question.select) {
         mark++;
       }
     });
     this.mark = mark;
     this.isSubmit = false; // chuyển thành fasle để disale button nộp bài
+    //submit
+    this.submit.emit();
+
   }
 }

@@ -18,6 +18,9 @@ import { TestDetailComponent } from './test-detail/test-detail.component';
 import { TestComponent } from './test/test.component';
 import { RandomTestComponent } from './random-test/random-test.component';
 import { FixTestComponent } from './fix-test/fix-test.component';
+import { AddTestComponent } from './add-test/add-test.component';
+import { AddQuestionComponent } from './add-question/add-question.component';
+import { QuestionComponent } from './question/question.component';
  
 @NgModule({
   declarations: [
@@ -33,6 +36,9 @@ import { FixTestComponent } from './fix-test/fix-test.component';
     TestComponent,
     RandomTestComponent,
     FixTestComponent,
+    AddTestComponent,
+    AddQuestionComponent,
+    QuestionComponent,
   ],
   imports: [
     BrowserModule,

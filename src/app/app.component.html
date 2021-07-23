@@ -1,39 +1,36 @@
-<div class="d-flex flex-column h-100">
+<div class="d-flex flex-column h-100" style="width: 100%;">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#"><img src="https://image.flaticon.com/icons/png/128/5170/5170635.png" style="width: 50px;" alt=""> Hảitặc.com</a>
+        <a class="navbar-brand" href="#"><img src="https://image.flaticon.com/icons/png/128/5170/5170635.png"
+            style="width: 50px;" alt=""> Hảitặc.com</a>
       </div>
-      <div class="collapse navbar-collapse">
+      <div class="collapse navbar-collapse ">
         <ul class="navbar-nav" routerLinkActive="active">
           <li class="nav-item">
             <a class="nav-link" routerLink="home"> <i class="bi bi-house-door-fill"></i> Home</a>
           </li>
           <li *ngIf="authority === 'user'" class="nav-item">
-            <a class="nav-link" routerLink="user">User Board</a>
+            <a class="nav-link" routerLink="user"><i class="bi bi-people"></i> User Board</a>
           </li>
           <li *ngIf="authority === 'admin'" class="nav-item">
-            <a class="nav-link" routerLink="admin">Admin Board</a>
+            <a class="nav-link" routerLink="admin" > <i class="bi bi-people"></i> Admin Board</a>
           </li>
           <li *ngIf="authority === 'pm'" class="nav-item">
             <a class="nav-link" routerLink="pm">PM Board</a>
           </li>
-          
-
           <!-- Example single danger button -->
-          <div class="btn-group">
-            <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Action 
-            </button>
-            <ul class="dropdown-menu dropdown-menu-lg-end">
-              <li *ngIf="!authority" class="nav-item">
-                <a class="dropdown-item" routerLink="auth/login">Login</a>
-              </li>
-              <li><a class="dropdown-item" href="#" (click)="logout()">Đăng xuất</a></li>
-            </ul>
-          </div>
-
+        </ul>
+      </div>
+      <div class="btn-group">
+        <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          Action
+        </button>
+        <ul class="dropdown-menu dropdown-menu-lg-end">
+          <li *ngIf="!authority" class="nav-item">
+            <a class="dropdown-item" routerLink="auth/login">Login</a>
+          </li>
+          <li><a class="dropdown-item" href="#" (click)="logout()">Đăng xuất</a></li>
         </ul>
       </div>
     </div>

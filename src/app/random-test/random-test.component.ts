@@ -42,7 +42,6 @@ export class RandomTestComponent implements OnInit {
       this.test = data;
       this.questions = this.test.questions;
       this.getIndex();
-      console.log(this.questions);
       this.question = this.questions[0];
       // console.log(this.questions);//
       // this.chooseQuestion();     

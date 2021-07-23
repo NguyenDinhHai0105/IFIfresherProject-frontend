@@ -41,7 +41,7 @@
   <div class="col-3">
     <div class="choice-question">
       <div class="container">
-        <p class="countdown" [style]="{'color': time ? '#0064b7' : '#ff6161'}"  [(ngModel)]="time">
+        <p class="countdown" [style]="{'color': time ? '#0064b7' : '#ff6161'}"  [(ngModel)]="time" >
           <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-24.jpg" style="width: 50px;" alt="">
           <u>
             <countdown [config]="{ leftTime: test?.test_time*60, format: 'mm:ss' }"> </countdown>

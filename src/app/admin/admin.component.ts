@@ -6,6 +6,7 @@ import { UserService } from '../services/user.service';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
+
 export class AdminComponent implements OnInit {
   board: string | undefined; // thêm undefine
   errorMessage: string | undefined; // thêm undefine

@@ -25,7 +25,6 @@ export class FixTestComponent implements OnInit {
     const testIdFromRoute = Number(routeParams.get('id'));
     this.testService.getTestById(testIdFromRoute).subscribe(data => {
       this.test = data;
-      console.log(this.test)
       this.questions = this.test.questions;
       this.getIndex();
       this.question = this.questions[0];
@@ -44,4 +43,9 @@ export class FixTestComponent implements OnInit {
       i++;
     });
   }
+
+  submit(){
+    console.log("submited")
+  }
+
 }
