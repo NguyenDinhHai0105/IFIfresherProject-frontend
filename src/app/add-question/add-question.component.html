@@ -1,2 +1,5 @@
-<app-question>
-</app-question>
+<div name="form" >
+    <app-question (quesContent) = "pushQuestion($event)">
+    </app-question>
+    <button class="btn btn-brimary" (click)="onSubmit()"> Lưu </button>
+</div>

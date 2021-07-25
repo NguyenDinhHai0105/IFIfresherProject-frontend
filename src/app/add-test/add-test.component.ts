@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Question } from '../question';
+import { TestService } from '../services/test.service';
+import { Test } from '../test';
 
 @Component({
   selector: 'app-add-test',
@@ -8,16 +10,32 @@ import { Question } from '../question';
 })
 export class AddTestComponent implements OnInit {
 
+  test !: Test;
   test_name !: string;
   test_time !: number;
   number_of_questions !: number;
-  questions!: Question[];
+  questions: Question[] = new Array();
+  numberQuestions = new Array();
   number_input!: number; // số lượng câu hỏi nhập vào
 
-  constructor() { }
+  constructor(
+    private testService: TestService
+  ) { }
 
   ngOnInit(): void {
-    
+    console.log(this.questions);
+  }
+
+  addQuestion(question: Question) {
+     this.questions.push(question);
+  }
+
+  submit() {
+    this.test = new Test(this.test_name, this.test_time, this.number_of_questions, this.questions);
+    this.testService.addTest(this.test).subscribe(data => {
+      
+    });
+    console.log(this.questions);
   }
 
   setNumberOfQuestions(number_input: number) { 
@@ -27,7 +45,7 @@ export class AddTestComponent implements OnInit {
       number_input = 0;
     }
     this.number_of_questions = number_input;
-    this.questions = new Array(number_input); // tạo 1 mảng gổm number_input phần tử để render ra number_input câu hỏi
+    this.numberQuestions = new Array(number_input);
   }
 
 }

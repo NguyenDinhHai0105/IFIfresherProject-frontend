@@ -41,7 +41,7 @@
   <div class="col-3">
     <div class="choice-question">
       <div class="container">
-        <p class="countdown" [style]="{'color': time ? '#0064b7' : '#ff6161'}"  [(ngModel)]="time" >
+        <p class="countdown" [style]="{'color': time ? '#0064b7' : '#ff6161'}"  [(ngModel)]="time" name="time">
           <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-24.jpg" style="width: 50px;" alt="">
           <u>
             <countdown [config]="{ leftTime: test?.test_time*60, format: 'mm:ss' }"> </countdown>
@@ -69,7 +69,7 @@
 </div>
 
 <!-- button nộp bài  -->
-<div *ngIf="count>=questions.length && isSubmit, else notEnough">
+<div *ngIf="count>=questions!.length && isSubmit, else notEnough">
   <button id="dis" type="button"
     style="width: 82.06px; height: 36px; color: white; margin-top: 0.4rem; margin-bottom: 0.6rem;" (click)="getMark()"
     class="btn btn-info shadow">Nộp bài</button>

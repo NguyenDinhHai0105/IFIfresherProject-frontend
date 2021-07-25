@@ -1,10 +1,18 @@
 <div>
-    <input type="number" [(ngModel)]="number_input" max="20" min="0">
-    <button (click)="setNumberOfQuestions(number_input)">tạo</button>
 </div>
-<form action="">
-    <div *ngFor="let question of questions">
-        <app-add-question></app-add-question>
+<div >
+    <label for="test_name">ten de thi</label>
+    <input type="text" name="" id="" [(ngModel)]="test_name">
+
+    <label for="test_time">thoi gian</label>
+    <input type="number" name="test_time" id="" [(ngModel)]="test_time">
+    
+    <label for="number_of_questions">so luong cau hoi</label>
+    <input type="number" name="number_of_questions" [(ngModel)]="number_input" max="20" min="0">
+    <button (click)="setNumberOfQuestions(number_input)">tạo</button>
+
+    <div *ngFor="let numberQuestion of numberQuestions">
+        <app-question (quesContent) = "addQuestion($event)"></app-question>
     </div>
-</form>
-<app-question></app-question>
+    <button (click)="submit()">submit</button>
+</div>

@@ -33,7 +33,6 @@ export class FixTestComponent implements OnInit {
 
   ngOnInit() {
     this.getFixTest();
-
   }
 
   getIndex() {

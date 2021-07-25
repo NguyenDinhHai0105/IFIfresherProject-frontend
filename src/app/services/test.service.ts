@@ -11,6 +11,7 @@ export class TestService {
 
   private baseURl = "http://localhost:8080/home";
   private random = "http://localhost:8080/api/tests/random";
+  private addtest = "http://localhost:8080/api/tests/add-tests";
 
   constructor(
     private http : HttpClient
@@ -26,5 +27,9 @@ export class TestService {
 
   getTestById(id: number): Observable<Test> {
     return this.http.get<Test>(`${this.baseURl}/${id}`);
+  }
+
+  addTest(test: Test): Observable<any> {
+    return this.http.post(this.addtest, test);
   }
 }
