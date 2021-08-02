@@ -1,18 +1,18 @@
-<div>
-</div>
-<div >
-    <label for="test_name">ten de thi</label>
-    <input type="text" name="" id="" [(ngModel)]="test_name">
+<div  >
+    <label for="test_name"><i class="bi bi-calendar2-range" style="color: #58a5f0;"></i> Tên đề thi:</label> <br>
+    <input class="form-control" style="width: 500px;" type="text" name="" id="" [(ngModel)]="test_name"> <br>
 
-    <label for="test_time">thoi gian</label>
-    <input type="number" name="test_time" id="" [(ngModel)]="test_time">
+    <label for="test_time"> <i class="fas fa-clock" style="color: #6abf69;"></i> Thời gian (phút): </label> <br>
+    <input class="form-control" type="number" style="width: 100px;" name="test_time" id="" [(ngModel)]="test_time" max="120" min="0" ><br>
     
-    <label for="number_of_questions">so luong cau hoi</label>
-    <input type="number" name="number_of_questions" [(ngModel)]="number_input" max="20" min="0">
-    <button (click)="setNumberOfQuestions(number_input)">tạo</button>
+    <label for="number_of_questions"> <i class="fas fa-sort-numeric-up-alt" style="color: #ff844c;"></i> Số lượng câu hỏi:</label> <br>
+    <input class="form-control" type="number" style="width: 100px;" name="number_of_questions" [(ngModel)]="number_input" max="20" min="0">
+    <button (click)="setNumberOfQuestions(number_input)" class="btn btn-primary test-btn">tạo</button>
 
-    <div *ngFor="let numberQuestion of numberQuestions">
-        <app-question (quesContent) = "addQuestion($event)"></app-question>
+    <div *ngFor="let numberQuestion of numberQuestions; let index = index">
+        <app-question (quesContent) = "addQuestion($event, index)"></app-question>
     </div>
-    <button (click)="submit()">submit</button>
+    <div *ngIf="questions">
+        <button class="btn btn-success test-btn" (click)="submit()">submit</button>
+    </div>
 </div>

@@ -21,6 +21,17 @@ import { FixTestComponent } from './fix-test/fix-test.component';
 import { AddTestComponent } from './add-test/add-test.component';
 import { AddQuestionComponent } from './add-question/add-question.component';
 import { QuestionComponent } from './question/question.component';
+import { ListTestComponent } from './list-test/list-test.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ListQuestionComponent } from './list-question/list-question.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { ImgModalComponent } from './img-modal/img-modal.component';
+import { UpdateQuestionComponent } from './update-question/update-question.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TrafficSignsComponent } from './traffic-signs/traffic-signs.component';
+import { SearchBoxComponent } from './search-box/search-box.component';
+import { SearchResultComponent } from './search-result/search-result.component';
+import { AllQuestionComponent } from './all-question/all-question.component';
  
 @NgModule({
   declarations: [
@@ -39,13 +50,24 @@ import { QuestionComponent } from './question/question.component';
     AddTestComponent,
     AddQuestionComponent,
     QuestionComponent,
+    ListTestComponent,
+    ListQuestionComponent,
+    ImgModalComponent,
+    UpdateQuestionComponent,
+    TrafficSignsComponent,
+    SearchBoxComponent,
+    SearchResultComponent,
+    AllQuestionComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule, 
-    CountdownModule
+    CountdownModule,
+    NgxPaginationModule,
+    ModalModule.forRoot(),
+    BrowserAnimationsModule
     
   ],
   providers: [httpInterceptorProviders],

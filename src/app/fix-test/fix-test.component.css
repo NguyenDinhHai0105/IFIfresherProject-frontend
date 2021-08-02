@@ -1,6 +1,9 @@
 .test-des {
     margin-top: 20px;
+    margin-left: 10%;
     background-color: #e3f2fd;
     padding: 10px;
     border-radius: 7px;
+    width: 18rem;
+    text-align: center;
 }

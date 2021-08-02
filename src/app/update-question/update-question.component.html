@@ -1,0 +1,43 @@
+<div style="padding: 20px;">
+<div class="add-question">
+    <label for="question">
+        <h5><i class="bi bi-patch-question" style="color: #ff6d00"></i> Câu hỏi: </h5>
+    </label>
+    <input class="form-control form-control-lg " type="text" name="question" [placeholder]="quesFromListQues.question"
+        aria-label=".form-control-lg example" [(ngModel)]="question">
+
+    <label for="img">
+        <h5 style="margin-top: 10px;"><i class="fas fa-images" style="color: #58a5f0;"></i> Hình ảnh: </h5>
+    </label>
+    <input class="form-control form-control-lg " type="text" [placeholder]="quesFromListQues.img" aria-label=".form-control-lg example"
+        [(ngModel)]="img">
+        
+    <label for="answer_a" style="margin-top: 5px;"><i class="bi bi-brush-fill" style="color: #3e2723;"></i> Câu trả lời a: </label>
+    <input class="form-control form-control-sm " type="text" name="answer_a" aria-label=".form-control-sm example" [placeholder]="quesFromListQues.answer_a"
+        [(ngModel)]="answer_a">
+
+    <label for="answer_b" style="margin-top: 5px;"><i class="bi bi-brush-fill" style="color: #3e2723;"></i> Câu trả lời b: </label>
+    <input class="form-control form-control-sm " type="text" name="answer_b" aria-label=".form-control-sm example" [placeholder]="quesFromListQues.answer_b"
+        [(ngModel)]="answer_b">
+
+    <label for="answer_c" style="margin-top: 5px;"><i class="bi bi-brush-fill" style="color: #3e2723;"></i> Câu trả lời c: </label>
+    <input class="form-control form-control-sm " type="text" name="answer_c" aria-label=".form-control-sm example" [placeholder]="quesFromListQues.answer_c"
+        [(ngModel)]="answer_c">
+
+    <label for="answer_d" style="margin-top: 5px;"><i class="bi bi-brush-fill" style="color: #3e2723;"></i> Câu trả lời d: </label>
+    <input class="form-control form-control-sm " type="text" name="answer_d" aria-label=".form-control-sm example" [placeholder]="quesFromListQues.answer_d"
+        [(ngModel)]="answer_d">
+
+
+    <label for="correct_answer"><i class="bi bi-check2-all" style="font-size: 30px; color: #6abf69;"></i> Đáp án đúng
+    </label>
+    <select class="form-select " aria-label="Default select example" name="correct_answer" style="width: 10rem;" [(ngModel)]="correct_answer">
+        <option value="a">Đáp án a</option>
+        <option value="b">Đáp án b</option>
+        <option value="c">Đáp án c</option>
+        <option value="d">Đáp án d</option>
+    </select>
+
+    <button class="btn btn-success" style="margin-top: 10px;" (click)="updateQuestion()" >save</button>
+</div>
+</div>

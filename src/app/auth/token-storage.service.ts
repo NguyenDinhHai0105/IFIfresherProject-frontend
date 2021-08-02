@@ -30,7 +30,7 @@ export class TokenStorageService {
     window.localStorage.setItem(USERNAME_KEY, username);
   }
  
-  public getUsername(): string | null{
+  public getUsername(): string | null {
     return localStorage.getItem(USERNAME_KEY);
   }
  

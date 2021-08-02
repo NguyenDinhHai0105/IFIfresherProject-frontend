@@ -12,6 +12,7 @@ export class TestService {
   private baseURl = "http://localhost:8080/home";
   private random = "http://localhost:8080/api/tests/random";
   private addtest = "http://localhost:8080/api/tests/add-tests";
+  private testURL = "http://localhost:8080/api/tests";
 
   constructor(
     private http : HttpClient
@@ -31,5 +32,9 @@ export class TestService {
 
   addTest(test: Test): Observable<any> {
     return this.http.post(this.addtest, test);
+  }
+
+  deleteTest(id: number): Observable<Test> {
+    return this.http.delete<Test>(`${this.testURL}/${id}`)
   }
 }

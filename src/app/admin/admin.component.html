@@ -1,4 +1,5 @@
-<ul class="nav nav-tabs" id="myTab" role="tablist">
+<!-- <div class="container">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
         <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
             role="tab" aria-controls="home" aria-selected="true">Thêm đề thi</button>
@@ -23,4 +24,57 @@
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
 </div>
 
-<h1>hai</h1>
+</div> -->
+
+
+<div class="d-flex align-items-start">
+
+    <div class="nav flex-column nav-pills vertical-tap me-3" id="v-pills-tab" role="tablist"
+        aria-orientation="vertical">
+        <div style="height: 120px;">
+            wellcome {{username}}
+            <i class="fab fa-angular"></i>
+            <i class="fas fa-cloud"></i>
+        </div>
+
+        <button class="nav-link tab-btn active" id="v-pills-home-tab" data-bs-toggle="pill"
+            data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"><i
+                class="fas fa-list"></i> Đề thi</button>
+
+        <button class="nav-link tab-btn" id="v-pills-messages-tab" data-bs-toggle="pill"
+            data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages"
+            aria-selected="false"><i class="fas fa-plus"></i> Thêm đề thi</button>
+
+        <button class="nav-link tab-btn" id="v-pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile"
+            aria-selected="false"><i class="fas fa-list"></i> Câu hỏi</button>
+
+        <button class="nav-link tab-btn" id="v-pills-settings-tab" data-bs-toggle="pill"
+            data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings"
+            aria-selected="false"><i class="fas fa-plus"></i> Thêm câu hỏi</button>
+
+        <button class="nav-link tab-btn" id="v-pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile"
+            aria-selected="false"><i class="fas fa-list"></i> Biển báo</button>
+
+        <button class="nav-link tab-btn" id="v-pills-settings-tab" data-bs-toggle="pill"
+            data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings"
+            aria-selected="false"><i class="fas fa-plus"></i> Thêm biển báo</button>
+    </div>
+
+
+    <div class="tab-content" id="v-pills-tabContent" style="width: 100%">
+        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+            <app-list-test></app-list-test>
+        </div>
+        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+            <app-add-test></app-add-test>
+        </div>
+        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+            <app-all-question></app-all-question>
+        </div>
+        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+            <app-add-question></app-add-question>
+        </div>
+    </div>
+</div>

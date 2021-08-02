@@ -28,15 +28,15 @@
         </button>
         <ul class="dropdown-menu dropdown-menu-lg-end">
           <li *ngIf="!authority" class="nav-item">
-            <a class="dropdown-item" routerLink="auth/login">Login</a>
+            <a class="dropdown-item" routerLink="auth/login"><i class="bi bi-box-arrow-in-left" style="color: #00c853;"></i> Đăng nhập</a>
           </li>
-          <li><a class="dropdown-item" href="#" (click)="logout()">Đăng xuất</a></li>
+          <li><a class="dropdown-item" href="#" (click)="logout()"> <i class="bi bi-box-arrow-in-right" style="color: #d32f2f;"></i> Đăng xuất</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <div class="container">
+  <div>
     <router-outlet></router-outlet>
   </div>
 

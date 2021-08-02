@@ -1,0 +1,20 @@
+#trafficSigns {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+p {
+    margin: 0px;
+}
+
+.traffic-tiltle {
+    border: 1px solid none;
+    border-radius: 5px;
+    text-align: center;
+}

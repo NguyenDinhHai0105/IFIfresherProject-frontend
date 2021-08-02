@@ -1,0 +1,62 @@
+<app-search-box></app-search-box>
+
+<table class="table table">
+    <thead>
+        <tr>
+            <th scope="col"><i class="fas fa-sort-numeric-down" style="color: #6ec6ff;"></i> Thứ tự</th>
+            <th scope="col"><i class="fas fa-file-signature" style="color: #5e92f3;"></i> Câu hỏi</th>
+            <th scope="col"><i class="bi bi-clock-fill" style="color: #4fb3bf;"></i> a </th>
+            <th scope="col"><i class="bi bi-clock-fill" style="color: #4fb3bf;"></i> b </th>
+            <th scope="col"><i class="bi bi-clock-fill" style="color: #4fb3bf;"></i> c </th>
+            <th scope="col"><i class="bi bi-clock-fill" style="color: #4fb3bf;"></i> d </th>
+            <th scope="col"><i class="bi bi-octagon-half" style="color: #60ad5e;"></i> Đáp án</th>
+            <th scope="col"><i class="bi bi-calendar-date-fill" style="color: #d2ce56;"></i> Hình</th>
+            <th scope="col"><i class="bi bi-gear-wide-connected" style="color: #ffc046;"></i> Hành động</th>
+        </tr>
+    </thead>
+    <tbody
+        *ngFor="let question of questions | paginate: { itemsPerPage: size, currentPage: page, totalItems: totalQuestions}; let i=index ">
+        <tr>
+            <th scope="row">{{i+1}}</th>
+            <td>{{question.question}}</td>
+            <td>{{question.answer_a}}</td>
+            <td>{{question.answer_b}}</td>
+            <td>{{question.answer_c}}</td>
+            <td>{{question.answer_d}}</td>
+            <td>{{question.correct_answer}}</td>
+            <td>
+                <div *ngIf="question.img">
+                    <button class="btn-action" (click)="openModal(template)">
+                        <i class="fas fa-eye" style="font-size: 25px; color: #00b8d4;"></i>
+                    </button>
+                    <ng-template #template>
+                        <!-- <div >
+                          <img style="width: 500px; border-radius: 7px;" [src]="question.img" alt="">
+                        </div> -->
+                        <app-img-modal [img]="question.img" ></app-img-modal>
+                      </ng-template>
+                    
+                </div>
+
+            </td>
+            <td>
+                <button class="btn-action" style="margin-right: 0.7rem;" (click)="openModal(updateQuestionTemplate)">
+                    <i class="bi bi-pencil-fill" style="color: #ffa000; font-size: 25px;"></i>
+                </button>
+
+                <ng-template #updateQuestionTemplate>                    
+                    <app-update-question [quesFromListQues]="question" ></app-update-question>
+                  </ng-template>
+                
+                <button class="btn-action" style="margin-right: 0.7rem;" (click)="deleteQuestion(question.id)">
+                    <i class="bi bi-trash-fill" style="color: #f44336; font-size: 25px;"></i>
+                </button>
+            </td>
+    </tbody>
+</table>
+<!-- <select class="form-select" aria-label="Default select example">
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+  </select> -->
+<!-- <pagination-controls (pageChange)="getQuestions($event)"></pagination-controls> -->

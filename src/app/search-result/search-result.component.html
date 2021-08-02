@@ -1,0 +1,4 @@
+<div class="search-result"> 
+    <app-list-question [page]="page" [size]="size" [questions]="searchResult" [totalQuestions] = "totalQuestions"></app-list-question>
+    <pagination-controls (pageChange)="getQuestionBySearch($event)"></pagination-controls> 
+</div>

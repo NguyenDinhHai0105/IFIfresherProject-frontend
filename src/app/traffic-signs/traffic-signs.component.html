@@ -1,0 +1,73 @@
+<div class="container" id="trafficSigns">
+    <div style="text-align: center;">
+        <h3> <i style="color: #d50000; margin-right: 5px;" class="fas fa-minus-circle"></i><u>BIỂN BÁO GIAO THÔNG</u>
+        </h3>
+    </div>
+    <div style="background-color: #ff7961;" class="traffic-tiltle" type="button" data-bs-toggle="collapse"
+        data-bs-target="#bienbaocam" aria-expanded="false" aria-controls="collapseExample">
+        <p>BIỂN BÁO CẤM</p>
+    </div>
+    <div class="collapse" id="bienbaocam" *ngFor="let prohibitionSign of prohibitionSigns">
+        <div class="card card-body" style="padding: 5px;">
+            <div>
+                <img style="width: 80px; margin: 10px;" src="{{prohibitionSign.img}}" alt="">
+            </div>
+            <div style="margin: 10px;">
+                <p> <b>{{prohibitionSign.name}}</b></p>
+                <p>{{prohibitionSign.code}}</p>
+                <p>{{prohibitionSign.description}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="background-color: #fdd835" class="traffic-tiltle" type="button" data-bs-toggle="collapse"
+        data-bs-target="#bienbaonguyhiem" aria-expanded="false" aria-controls="collapseExample">
+        <p>BIỂN BÁO NGUY HIỂM</p>
+    </div>
+    <div class="collapse" id="bienbaonguyhiem" *ngFor="let dangerSign of dangerSigns">
+        <div class="card card-body" style="padding: 5px;">
+            <div>
+                <img style="width: 80px; margin: 10px;" src="{{dangerSign.img}}" alt="">
+            </div>
+            <div style="margin: 10px;">
+                <p> <b>{{dangerSign.name}}</b></p>
+                <p>{{dangerSign.code}}</p>
+                <p>{{dangerSign.description}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="background-color: #82b1ff" class="traffic-tiltle" type="button" data-bs-toggle="collapse"
+        data-bs-target="#bienbaohieulenh" aria-expanded="false" aria-controls="collapseExample">
+        <p>BIỂN BÁO HIỆU LỆNH</p>
+    </div>
+    <div class="collapse" id="bienbaohieulenh" *ngFor="let commandSigns of commandSigns">
+        <div class="card card-body" style="padding: 5px;">
+            <div>
+                <img style="width: 80px; margin: 10px;" src="{{commandSigns.img}}" alt="">
+            </div>
+            <div style="margin: 10px;">
+                <p> <b>{{commandSigns.name}}</b></p>
+                <p>{{commandSigns.code}}</p>
+                <p>{{commandSigns.description}}</p>
+            </div>
+        </div>
+    </div>
+    
+    <div style="background-color: #80d8ff" class="traffic-tiltle" type="button" data-bs-toggle="collapse"
+        data-bs-target="#bienbaochidan" aria-expanded="false" aria-controls="collapseExample">
+        <p>BIỂN BÁO CHỈ DẪN</p>
+    </div>
+    <div class="collapse" id="bienbaochidan" *ngFor="let guideSign of guideSigns">
+        <div class="card card-body" style="padding: 5px;">
+            <div>
+                <img style="width: 80px; margin: 10px;" src="{{guideSign.img}}" alt="">
+            </div>
+            <div style="margin: 10px;">
+                <p> <b>{{guideSign.name}}</b></p>
+                <p>{{guideSign.code}}</p>
+                <p>{{guideSign.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>

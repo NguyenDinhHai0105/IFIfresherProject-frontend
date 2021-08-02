@@ -1,6 +1,7 @@
 
-<!-- hiển thị thông tin câu hỏi -->
-<div class="container page mt-sm-5 my-1 row shadow">
+<div class="row justify-content-md-start" >
+  <!-- hiển thị thông tin câu hỏi --> 
+<div class="container page mt-sm-5 my-1 row shadow" style="margin-left: 10%;align-items: flex-start;">
   <div class="col-9" style="  border-right: 1px solid #cfcfcf; ">
     <div id="show_question" class="question ml-sm-5 pl-sm-5 pt-2 " *ngIf="question">
       <div>
@@ -40,8 +41,8 @@
   <!-- hiển thị các button chọn câu -->
   <div class="col-3">
     <div class="choice-question">
-      <div class="container">
-        <p class="countdown" [style]="{'color': time ? '#0064b7' : '#ff6161'}"  [(ngModel)]="time" name="time">
+      <div class="container" >
+        <p class="countdown" [style]="{'color': time ? '#0064b7' : '#ff6161'}"  [(ngModel)]="time" name="name">
           <img src="https://icon-library.com/images/spinner-icon-gif/spinner-icon-gif-24.jpg" style="width: 50px;" alt="">
           <u>
             <countdown [config]="{ leftTime: test?.test_time*60, format: 'mm:ss' }"> </countdown>
@@ -68,15 +69,7 @@
   </div>
 </div>
 
-<!-- button nộp bài  -->
-<div *ngIf="count>=questions!.length && isSubmit, else notEnough">
-  <button id="dis" type="button"
-    style="width: 82.06px; height: 36px; color: white; margin-top: 0.4rem; margin-bottom: 0.6rem;" (click)="getMark()"
-    class="btn btn-info shadow">Nộp bài</button>
-</div>
-<ng-template #notEnough> <button id="disableButton" type="button"
-    style="width: 82.06px; height: 36px; color: white; background-color: #a4a4a4; margin-top: 0.4rem; margin-bottom: 0.6rem;"
-    disabled class="btn shadow">Nộp bài</button> </ng-template>
+
 
 <!-- hiện kết quả  -->
 <div class="mark shadow" *ngIf="mark>=0">
@@ -96,3 +89,19 @@
     </div>
   </ng-template>
 </div>
+
+<div style="margin-left: 10%;">
+  <!-- button nộp bài  -->
+<div *ngIf="count>=questions!.length && isSubmit, else notEnough">
+  <button id="dis" type="button"
+    style="width: 82.06px; height: 36px; color: white; margin-top: 0.4rem; margin-bottom: 0.6rem;" (click)="getMark()"
+    class="btn btn-info shadow">Nộp bài</button>
+</div>
+<ng-template #notEnough> <button id="disableButton" type="button"
+    style="width: 82.06px; height: 36px; color: white; background-color: #a4a4a4; margin-top: 0.4rem; margin-bottom: 0.6rem;"
+    disabled class="btn shadow">Nộp bài</button> </ng-template>
+</div>
+
+</div>
+
+

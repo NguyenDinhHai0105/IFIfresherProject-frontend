@@ -10,6 +10,7 @@ import { Test } from '../test';
 })
 export class AddTestComponent implements OnInit {
 
+  i : number;
   test !: Test;
   test_name !: string;
   test_time !: number;
@@ -26,16 +27,15 @@ export class AddTestComponent implements OnInit {
     console.log(this.questions);
   }
 
-  addQuestion(question: Question) {
-     this.questions.push(question);
+  addQuestion($event, index: number) {
+     this.questions[index]=$event;
   }
 
   submit() {
     this.test = new Test(this.test_name, this.test_time, this.number_of_questions, this.questions);
-    this.testService.addTest(this.test).subscribe(data => {
-      
+    this.testService.addTest(this.test).subscribe(data => {      
     });
-    console.log(this.questions);
+    window.alert("Lưu bài thi thành công!")
   }
 
   setNumberOfQuestions(number_input: number) { 

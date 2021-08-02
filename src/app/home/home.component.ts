@@ -37,4 +37,8 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['random-test']);
   }
 
+  goToTrafficSigns() {
+    this.router.navigate(['traffic-signs']);
+  }
+
 }

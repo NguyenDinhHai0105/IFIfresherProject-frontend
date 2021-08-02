@@ -1,5 +1,6 @@
-<div name="form" >
-    <app-question (quesContent) = "pushQuestion($event)">
-    </app-question>
-    <button class="btn btn-brimary" (click)="onSubmit()"> Lưu </button>
+<div style="margin-bottom: 10px;">
+    <form name="form" (ngSubmit)="onSubmit()" >
+        <app-question (quesContent) = "pushQuestion($event)">
+        </app-question>
+    </form>
 </div>

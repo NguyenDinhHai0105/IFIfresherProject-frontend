@@ -11,11 +11,21 @@ import { TestDetailComponent } from './test-detail/test-detail.component';
 import { TestComponent } from './test/test.component';
 import { RandomTestComponent } from './random-test/random-test.component';
 import { FixTestComponent } from './fix-test/fix-test.component';
+import { TrafficSignsComponent } from './traffic-signs/traffic-signs.component';
+import { SearchResultComponent } from './search-result/search-result.component';
  
 const routes: Routes = [
     {
         path: 'home',
         component: HomeComponent
+    },
+    {
+        path: 'search/:input',
+        component: SearchResultComponent
+    },
+    {
+        path: 'traffic-signs',
+        component: TrafficSignsComponent
     },
     {
         path: 'test',

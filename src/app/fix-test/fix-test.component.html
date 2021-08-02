@@ -1,9 +1,7 @@
-<div class="test-des" style="width: 18rem;">
-    <div class="card-body">
+    <div class="card-body test-des "  >
         <h5 class="card-title">----Thi thử {{test?.test_name}} ----</h5>
         <h6 class="card-subtitle mb-2 text-muted">Thời gian: {{test?.test_time}} </h6>
         <h6 class="card-subtitle mb-2 text-muted">Điểm tối thiểu đạt: {{test?.number_of_questions}}/{{test?.number_of_questions}} :)) </h6>
         <p class="card-text"></p>
     </div>
-</div>
 <app-test-detail [questions] = "questions" [question] = "question" [test] = "test" (submit)="submit()"></app-test-detail>

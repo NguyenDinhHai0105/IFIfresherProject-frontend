@@ -1,0 +1,28 @@
+<table class="table table">
+    <thead>
+        <tr>
+            <th scope="col"><i class="fas fa-sort-numeric-down" style="color: #6ec6ff;"></i> Thứ tự</th>
+            <th scope="col"><i class="fas fa-file-signature" style="color: #5e92f3;"></i> Tên đề thi</th>
+            <th scope="col"><i class="bi bi-clock-fill" style="color: #4fb3bf;"></i> Thời gian(phút) </th>
+            <th scope="col"><i class="bi bi-octagon-half" style="color: #60ad5e;"></i> Số câu hỏi</th>
+            <th scope="col"><i class="bi bi-calendar-date-fill" style="color: #d2ce56;"></i> Ngày tạo</th>
+            <th scope="col"><i class="bi bi-gear-wide-connected" style="color: #ffc046;"></i> Hành động</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let test of tests; let i=index">
+        <tr>
+            <th scope="row">{{i+1}}</th>
+            <td>{{test.test_name}}</td>
+            <td>{{test.test_time}}</td>
+            <td>{{test.number_of_questions}}</td>
+            <td>{{test.creat_at}}</td>
+            <td>
+                <button class="btn-action" style="margin-right: 0.7rem;">
+                    <i class="bi bi-pencil-fill" style="color: #ffa000; font-size: 25px;"></i>
+                </button>
+                <button class="btn-action" (click)="deleteTest(test.id)" style="margin-right: 0.7rem;">
+                    <i class="bi bi-trash-fill" style="color: #f44336; font-size: 25px;"></i>
+                </button>
+            </td>
+    </tbody>
+</table>
