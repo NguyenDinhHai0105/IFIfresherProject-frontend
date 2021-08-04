@@ -32,6 +32,10 @@ import { TrafficSignsComponent } from './traffic-signs/traffic-signs.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { AllQuestionComponent } from './all-question/all-question.component';
+import { AddTrafficSignComponent } from './add-traffic-sign/add-traffic-sign.component';
+import { UpdateTrafficSignComponent } from './update-traffic-sign/update-traffic-sign.component';
+import { AllTrafficSignComponent } from './all-traffic-sign/all-traffic-sign.component';
+import { AllTestModalComponent } from './all-test-modal/all-test-modal.component';
  
 @NgModule({
   declarations: [
@@ -58,6 +62,10 @@ import { AllQuestionComponent } from './all-question/all-question.component';
     SearchBoxComponent,
     SearchResultComponent,
     AllQuestionComponent,
+    AddTrafficSignComponent,
+    UpdateTrafficSignComponent,
+    AllTrafficSignComponent,
+    AllTestModalComponent,
   ],
   imports: [
     BrowserModule,

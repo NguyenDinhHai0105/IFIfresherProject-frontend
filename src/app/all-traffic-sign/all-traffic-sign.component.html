@@ -1,0 +1,46 @@
+<div class="table-responsive-sm">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" style="width: 3rem"><i class="fab fa-codepen" style="color: #40c4ff;"></i> Mã</th>
+        <th scope="col" style="width: 10rem;"><i class="fas fa-adjust" style="color: #2bbd7e;"></i> Tên bảng</th>
+        <th scope="col" style="width: 30rem;"><i class="fab fa-affiliatetheme" style="color: #c7cc00"></i> Miêu tả</th>
+        <th scope="col" style="width: 5rem;"><i class="fas fa-images" style="color: #00c853;"></i> Ảnh</th>
+        <th scope="col" style="width: 5rem;"><i class="fab fa-accusoft" style="color: #ff6e40"></i> Loại</th>
+        <th scope="col" style="width: 10rem;"><i class="fas fa-cog" style="color: #fdd835;"></i> Hành động</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let trafficSign of trafficSigns">
+      <tr>
+        <th scope="row">{{trafficSign.code}}</th>
+        <td>{{trafficSign.name}}</td>
+        <td>{{trafficSign.description}}</td>
+        <!-- <td>{{trafficSign.img}}</td> -->
+        <button class="btn-action" (click)="openModal(template)">
+          <i class="fas fa-eye" style="font-size: 25px; color: #00b8d4;"></i>
+        </button>
+        <ng-template #template>
+          <!-- <div >
+            <img style="width: 500px; border-radius: 7px;" [src]="question.img" alt="">
+          </div> -->
+          <app-img-modal [img]="trafficSign.img" ></app-img-modal>
+        </ng-template>
+        <td>{{trafficSign.type}}</td>
+        <td>
+          <button class="btn-action" (click)="openModal(template1)">
+            <i class="bi bi-pencil-fill" style="color: #ffa000; font-size: 25px;"></i>
+          </button>
+          <ng-template #template1>
+            <!-- <div >
+              <img style="width: 500px; border-radius: 7px;" [src]="question.img" alt="">
+            </div> -->
+            <app-update-traffic-sign [trafficSignFromList]="trafficSign" ></app-update-traffic-sign>
+          </ng-template>
+          <button class="btn-action" (click)="deleteTrafficSign(trafficSign.id)">
+            <i class="bi bi-trash-fill" style="color: #f44336; font-size: 25px;"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

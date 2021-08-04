@@ -31,10 +31,15 @@
 
     <div class="nav flex-column nav-pills vertical-tap me-3" id="v-pills-tab" role="tablist"
         aria-orientation="vertical">
-        <div style="height: 120px;">
-            wellcome {{username}}
-            <i class="fab fa-angular"></i>
-            <i class="fas fa-cloud"></i>
+        <div style="height: 120px;" class="wellcome">
+            <div>
+                <i class="fas fa-user user" style="font-size: 80px; color: #fafafa"></i>
+            </div>
+            <div>
+                <h5 style="color: white;">
+                    Wellcome {{username}}
+                </h5>
+            </div>
         </div>
 
         <button class="nav-link tab-btn active" id="v-pills-home-tab" data-bs-toggle="pill"
@@ -53,12 +58,12 @@
             data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings"
             aria-selected="false"><i class="fas fa-plus"></i> Thêm câu hỏi</button>
 
-        <button class="nav-link tab-btn" id="v-pills-profile-tab" data-bs-toggle="pill"
-            data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile"
+        <button class="nav-link tab-btn" id="all-traffic-signs-tab" data-bs-toggle="pill"
+            data-bs-target="#all-traffic-signs" type="button" role="tab" aria-controls="v-pills-profile"
             aria-selected="false"><i class="fas fa-list"></i> Biển báo</button>
 
-        <button class="nav-link tab-btn" id="v-pills-settings-tab" data-bs-toggle="pill"
-            data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings"
+        <button class="nav-link tab-btn" id="add-traffic-signs-tab" data-bs-toggle="pill"
+            data-bs-target="#add-traffic-signs" type="button" role="tab" aria-controls="add-traffic-signs"
             aria-selected="false"><i class="fas fa-plus"></i> Thêm biển báo</button>
     </div>
 
@@ -75,6 +80,12 @@
         </div>
         <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
             <app-add-question></app-add-question>
+        </div>
+        <div class="tab-pane fade" id="all-traffic-signs" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+            <app-all-traffic-sign></app-all-traffic-sign>
+        </div>
+        <div class="tab-pane fade" id="add-traffic-signs" role="tabpanel" aria-labelledby="add-traffic-signs-tab">
+            <app-add-traffic-sign></app-add-traffic-sign>
         </div>
     </div>
 </div>

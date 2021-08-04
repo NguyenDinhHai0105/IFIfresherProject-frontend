@@ -11,6 +11,7 @@
 
     <div *ngFor="let numberQuestion of numberQuestions; let index = index">
         <app-question (quesContent) = "addQuestion($event, index)"></app-question>
+        <hr style="width: 1000px">
     </div>
     <div *ngIf="questions">
         <button class="btn btn-success test-btn" (click)="submit()">submit</button>

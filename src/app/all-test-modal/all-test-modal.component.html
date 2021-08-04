@@ -1,0 +1,6 @@
+ <select class="form-select" aria-label="Default select example" [(ngModel)]="testId" name="testId">
+    <option *ngFor="let test of tests" value={{test.id}}>
+        {{test.test_name}}
+    </option>
+</select>
+<button class="btn btn-primary" (click)="addQuesToTest()"> Xác nhận</button>

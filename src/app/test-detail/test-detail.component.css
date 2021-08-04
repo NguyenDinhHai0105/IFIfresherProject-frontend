@@ -126,9 +126,8 @@ body {
 }
 
 .mark {
-    position: absolute;
-    top: 170px;
-    right: 160px;
+    margin-top: 59px;
+    margin-left: 20px;
     width: 250px;
     height: 220px;
     background-color: #fafafa;

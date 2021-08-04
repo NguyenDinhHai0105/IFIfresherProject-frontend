@@ -1,0 +1,33 @@
+<div class="container" style="margin: 20px; width: 23rem">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"><i class="fab fa-codepen" style="color: #40c4ff;"></i> Mã biển báo</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="form.code">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputPassword2" class="form-label"><i class="fas fa-adjust" style="color: #2bbd7e;"></i> Tên biển báo</label>
+        <input type="text" class="form-control" id="exampleInputPassword2" [(ngModel)]="form.name">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputPassword3" class="form-label"><i class="fab fa-affiliatetheme" style="color: #c7cc00"></i> Miêu tả</label>
+        <input type="text" class="form-control" id="exampleInputPassword3" [(ngModel)]="form.description">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputPassword4" class="form-label"><i class="fas fa-images" style="color: #00c853;"></i> Hình ảnh</label>
+        <input type="text" class="form-control" id="exampleInputPassword4" [(ngModel)]="form.img">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputPassword5" class="form-label"><i class="fab fa-accusoft" style="color: #ff6e40"></i> Loại biển báo</label>
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="form.type">
+            <option value="bienbaocam">Biển báo cấm</option>
+            <option value="bienbaonguyhiem">Biển báo nguy hiểm </option>
+            <option value="bienbaohieulenh">Biển báo hiệu lệnh</option>
+            <option value="bienbaochidan">Biển báo chỉ dẫn</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="updateTrafficSign()">Cập nhật</button>
+</div>

@@ -86,9 +86,9 @@ export class TestDetailComponent implements OnInit {
     }
   }
 
-  async getMark() {
+  getMark() {
     let mark = 0;
-    await this.questions?.forEach(question => {
+    this.questions?.forEach(question => {
       if (question.correct_answer == question.select) {
         mark++;
       }
@@ -99,4 +99,25 @@ export class TestDetailComponent implements OnInit {
     this.submit.emit();
 
   }
+
+  isCorrect(question : Question){
+    if (question.correct_answer == question.select) {
+      return true;
+    }
+    return false;
+  }
+
+  canSubmit(){
+    let i = 0;
+    this.questions.forEach(question => {
+      if(question.select){
+        i++;
+      }
+    });
+    if(i == this.questions.length){
+      return true;
+    }
+    return false;
+  }
+
 }

@@ -15,11 +15,12 @@ export class ListQuestionComponent implements OnInit {
   @Input() page: number = 0;
   @Input() size!: number;
   @Input() questions: Question[];
-  @Input() totalQuestions : number;
-  imgSource : string;
+  @Input() totalQuestions: number;
+  imgSource: string;
+  modalRef!: BsModalRef;
 
   constructor(
-    private questionService : QuestionService,
+    private questionService: QuestionService,
     private modalService: BsModalService,
     private router: Router
   ) { }
@@ -35,22 +36,22 @@ export class ListQuestionComponent implements OnInit {
   deleteQuestion(id: number) {
     this.questionService.deleteQuestion(id).subscribe(data => {
       window.alert("Xóa thành công!");
-      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-        this.router.navigate(['admin']);
-    }); 
-    }, 
-    error => {
-      window.alert("Không thể xóa câu hỏi trong 1 đề thi!");
-    }
-      );
+      // this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      //   this.router.navigate(['admin']);
+      // });
+    },
+      error => {
+        window.alert("Không thể xóa câu hỏi trong 1 đề thi!");
+      }
+    );
   }
 
   ngOnInit(): void {
     // this.getQuestions(this.page);
   }
 
-  modalRef!: BsModalRef; // 
- 
+  // 
+
   openModal(template: TemplateRef<any>) { // mở model
     this.modalRef = this.modalService.show(template);
   }

@@ -18,3 +18,11 @@
     color: black;
     border-radius: 7px 0px 0px 7px;
 }
+
+.wellcome {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+
