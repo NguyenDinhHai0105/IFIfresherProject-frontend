@@ -28,10 +28,8 @@ export class AllTrafficSignComponent implements OnInit {
     });
   }
 
-  deleteTrafficSign(id: number) {
+  deleteTrafficSign(id: number, index: number) {
     this.trafficSignService.deleteTrafficSign(id).subscribe(data => {});
-    window.alert("Xóa thành công!");
-    window.location.reload();
   }
 
   openModal(template: TemplateRef<any>) { // mở model

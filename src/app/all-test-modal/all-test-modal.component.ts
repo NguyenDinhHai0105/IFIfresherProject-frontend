@@ -27,7 +27,8 @@ export class AllTestModalComponent implements OnInit {
 
   addQuesToTest() {
     this.questionService.addQuesToTest(this.quesIdFromList, this.testId).subscribe(data => {});
-    console.log(this.quesIdFromList, this.testId)
+    window.alert("thêm thành công!");
+    window.location.reload();
   }
 
 }

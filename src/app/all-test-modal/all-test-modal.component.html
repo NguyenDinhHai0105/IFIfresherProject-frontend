@@ -1,6 +1,10 @@
- <select class="form-select" aria-label="Default select example" [(ngModel)]="testId" name="testId">
-    <option *ngFor="let test of tests" value={{test.id}}>
-        {{test.test_name}}
-    </option>
-</select>
-<button class="btn btn-primary" (click)="addQuesToTest()"> Xác nhận</button>
+<div class="test-modal">
+    <select class="form-select" aria-label="Default select example" [(ngModel)]="testId" name="testId">
+        <option *ngFor="let test of tests" value={{test.id}}>
+            {{test.test_name}}
+        </option>
+    </select>
+</div>
+<div class="btn-modal" style="">
+    <button class="btn btn-primary" (click)="addQuesToTest()"> Xác nhận</button>    
+</div>

@@ -10,7 +10,7 @@
         <th scope="col" style="width: 10rem;"><i class="fas fa-cog" style="color: #fdd835;"></i> Hành động</th>
       </tr>
     </thead>
-    <tbody *ngFor="let trafficSign of trafficSigns">
+    <tbody *ngFor="let trafficSign of trafficSigns; let index = index">
       <tr>
         <th scope="row">{{trafficSign.code}}</th>
         <td>{{trafficSign.name}}</td>
@@ -36,7 +36,7 @@
             </div> -->
             <app-update-traffic-sign [trafficSignFromList]="trafficSign" ></app-update-traffic-sign>
           </ng-template>
-          <button class="btn-action" (click)="deleteTrafficSign(trafficSign.id)">
+          <button class="btn-action" (click)="deleteTrafficSign(trafficSign.id, index)">
             <i class="bi bi-trash-fill" style="color: #f44336; font-size: 25px;"></i>
           </button>
         </td>
