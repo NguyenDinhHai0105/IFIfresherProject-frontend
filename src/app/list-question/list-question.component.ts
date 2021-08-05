@@ -18,6 +18,7 @@ export class ListQuestionComponent implements OnInit {
   @Input() totalQuestions: number;
   imgSource: string;
   modalRef!: BsModalRef;
+  error: any;
 
   constructor(
     private questionService: QuestionService,
@@ -33,15 +34,16 @@ export class ListQuestionComponent implements OnInit {
   //   })
   // }
 
-  deleteQuestion(id: number) {
+  deleteQuestion(id: number, i: number) {
+
     this.questionService.deleteQuestion(id).subscribe(data => {
       window.alert("Xóa thành công!");
-      // this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      //   this.router.navigate(['admin']);
-      // });
+      this.questions.splice(i, 1);
+      this.questions = this.questions;
     },
       error => {
         window.alert("Không thể xóa câu hỏi trong 1 đề thi!");
+        this.error = error;
       }
     );
   }

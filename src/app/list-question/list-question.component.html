@@ -49,7 +49,7 @@
                     <app-all-test-modal [quesIdFromList]="question.id"></app-all-test-modal>
                 </ng-template>
         
-                <button class="btn-action" (click)="deleteQuestion(question.id)">
+                <button class="btn-action" (click)="deleteQuestion(question.id, i)">
                     <i class="bi bi-trash-fill" style="color: #f44336; font-size: 25px;"></i>
                 </button>                
             </td>

@@ -27,6 +27,7 @@ export class AddQuestionComponent implements OnInit {
     this.questionService.addQuestions(this.questions).subscribe(data => {
     });
     window.alert("Thêm thành công!");
+    window.location.reload();
   }
 
   pushQuestion(question: Question) {

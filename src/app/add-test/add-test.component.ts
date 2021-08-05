@@ -32,11 +32,11 @@ export class AddTestComponent implements OnInit {
   }
 
   submit() {
-    this.test = new Test(this.test_name, this.test_time, this.number_of_questions, this.questions);
+    this.test = new Test(this.test_name, this.test_time, this.questions.length, this.questions);
     this.testService.addTest(this.test).subscribe(data => {      
     });
     window.alert("Lưu bài thi thành công!");
-    console.log(this.test);
+    window.location.reload();
   }
 
   setNumberOfQuestions(number_input: number) { 

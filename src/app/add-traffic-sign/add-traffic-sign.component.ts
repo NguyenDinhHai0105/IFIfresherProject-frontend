@@ -23,6 +23,7 @@ export class AddTrafficSignComponent implements OnInit {
     this.trafficSign = new TrafficSigns(this.form.type, this.form.name, this.form.code, this.form.description, this.form.img);
     this.trafficSignService.addTrafficSign(this.trafficSign).subscribe(data => {});
     window.alert("Thêm thành công!");
+    window.location.reload();
   }
 
 }
