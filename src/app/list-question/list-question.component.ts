@@ -39,7 +39,7 @@ export class ListQuestionComponent implements OnInit {
     this.questionService.deleteQuestion(id).subscribe(data => {
       window.alert("Xóa thành công!");
       this.questions.splice(i, 1);
-      this.questions = this.questions;
+      // this.questions = this.questions;
     },
       error => {
         window.alert("Không thể xóa câu hỏi trong 1 đề thi!");

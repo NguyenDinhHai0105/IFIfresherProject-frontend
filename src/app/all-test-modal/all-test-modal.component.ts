@@ -26,9 +26,13 @@ export class AllTestModalComponent implements OnInit {
   }
 
   addQuesToTest() {
-    this.questionService.addQuesToTest(this.quesIdFromList, this.testId).subscribe(data => {});
-    window.alert("thêm thành công!");
-    window.location.reload();
+    this.questionService.addQuesToTest(this.quesIdFromList, this.testId).subscribe(data => {
+      window.alert("thêm thành công!");
+    }, 
+    error => {
+      window.alert("Câu hỏi đã có trong đề thi!");
+    });
+    
+    // window.location.reload();
   }
-
 }

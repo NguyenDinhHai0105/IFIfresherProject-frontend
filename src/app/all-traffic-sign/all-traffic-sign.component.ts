@@ -30,7 +30,7 @@ export class AllTrafficSignComponent implements OnInit {
 
   deleteTrafficSign(id: number, index: number) {
     this.trafficSigns.splice(index, 1);
-    this.trafficSigns = this.trafficSigns;
+    // this.trafficSigns = this.trafficSigns;
     this.trafficSignService.deleteTrafficSign(id).subscribe(data => {});
   }
 
